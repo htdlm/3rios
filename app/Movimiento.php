@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Movimiento extends Model
 {
 
+    protected $table = 'mov';
+
+    protected $fillable = ['FecCre', 'FecAct', 'FecSer', 'FecSol', 'FecRea', 'FasMovId', 'CliLocId', 'RefCli', 'ObsMov', 'KilBru', 'KilNet', 'NumTar', 'AdiId1', 'AdiId2', 'AdiId3', 'UseId1', 'SemSol', 'SemSer', 'FacTar', 'FacTarTot'];
+
+    protected $primaryKey = 'MovId';
     /* Hay 3 adicionales, checar si puedo
     hacer la consulta de los 3 en este mismo metodo */
     public function adicionales()

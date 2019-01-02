@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Adicional extends Model
 {
+    protected $table = 'adi';
+
+    protected $fillable = ['DesId', 'UniId', 'CosId', 'ObsAdi'];
+
+    protected $primaryKey = 'AdiId';
+
     /* Cada Adicional pertenece
     a un movimiento*/
     public function movimiento()

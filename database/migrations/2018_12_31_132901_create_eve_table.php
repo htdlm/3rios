@@ -20,7 +20,7 @@ class CreateEveTable extends Migration
             $table->date('FecSol');
             $table->date('FecRea');
             $table->integer('FasMovId')->unsigned();
-            $table->string('ObsMov')->nullable();
+            $table->string('ObsEve')->nullable();
             $table->integer('AdiId')->unsigned()->nullable();
             $table->integer('UseId')->unsigned();
             $table->integer('SemAct');

@@ -6,31 +6,34 @@ use Illuminate\Database\Eloquent\Model;
 
 class Unidad extends Model
 {
-    //
+    protected $table = 'uni';
 
+    protected $fillable = ['DesUni', 'PlaUni', 'TipUniId', 'ObsUni'];
+
+    protected $primaryKey = 'UniId';
 
     public function tipo_unidad()
     {
-    	# code...
+        # code...
     }
 
     /*Relacion muchos a muchos
     tabla unidad_operador*/
     public function operadores()
     {
-    	# code...
+        # code...
     }
 
     public function clase()
     {
-    	# code...
+        # code...
     }
 
     /*Relacion muchos a muchos
-    Tabla uni_ope_tra 
+    Tabla uni_ope_tra
     Una unidad pertenece a un transportista */
     public function transportista()
     {
-    	# code...
+        # code...
     }
 }

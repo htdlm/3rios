@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evento extends Model
 {
+    protected $table = 'eve';
+
+    protected $fillable = ['MovId', 'FecAct', 'FecSol', 'FecRea', 'FasMovId', 'ObsEve', 'AdiId', 'UseId', 'SemAct', 'SemSol', 'SemRea'];
+
+    protected $primaryKey = 'EveId';
+
     /* Cada evento pertenece
     a un movimiento*/
     public function movimiento()

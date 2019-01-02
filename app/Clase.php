@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Clase extends Model
 {
+    protected $table = 'cla';
+
+    protected $fillable = ['DesCla', 'ObsCla'];
+
+    protected $primaryKey = 'ClaId';
+
     /*Una clase puede tener una o varias unidades*/
     public function unidades()
     {
