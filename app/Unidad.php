@@ -8,13 +8,13 @@ class Unidad extends Model
 {
     protected $table = 'uni';
 
-    protected $fillable = ['DesUni', 'PlaUni', 'TipUniId', 'ObsUni'];
+    protected $fillable = ['DesUni', 'PlaUni', 'TipUniId', 'ObsUni','ClaId'];
 
     protected $primaryKey = 'UniId';
 
     public function tipo_unidad()
     {
-        # code...
+        return $this->belongsTo(TipoUnidad::class,'TipUniId');
     }
 
     /*Relacion muchos a muchos
@@ -26,7 +26,7 @@ class Unidad extends Model
 
     public function clase()
     {
-        # code...
+        return $this->belongsTo(Clase::class,'ClaId');
     }
 
     /*Relacion muchos a muchos

@@ -15,7 +15,7 @@ class Localidad extends Model
     /* Una localidad pertenece a un cliente*/
     public function cliente()
     {
-        # code...
+        return $this->belongsTo(Cliente::class,'CliId');
     }
 
     /* Hay una relacion de moviemientos

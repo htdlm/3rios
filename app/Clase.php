@@ -15,7 +15,7 @@ class Clase extends Model
     /*Una clase puede tener una o varias unidades*/
     public function unidades()
     {
-        # code...
+        return $this->hasMany(Unidad::class,'ClaId');
     }
 
     /*Una clase puede tener uno o varios operadores */
