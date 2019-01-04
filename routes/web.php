@@ -26,6 +26,14 @@ Route::post('/TipoServicio/actualizar/{id}', 'TipSerController@update');
 Route::get('/TipoServicio/mostrar/{id}', 'TipSerController@show');
 Route::get('/TipoServicio/eliminar/{id}', 'TipSerController@destroy');
 
+//Tipos de servicio
+Route::get('/Tarifas', 'TarifaController@index');
+Route::post('/Tarifa/agregar', 'TarifaController@store');
+Route::post('/Tarifa/actualizar/{id}', 'TarifaController@update');
+Route::get('/Tarifa/mostrar/{id}', 'TarifaController@show');
+Route::get('/TarifaCliente/mostrar/{id}', 'TarifaController@showCliente');
+Route::get('/Tarifa/eliminar/{id}', 'TarifaController@destroy');
+
 //Clientes
 Route::get('Clientes', 'ClienteController@index');
 Route::post('Cliente/agregar', 'ClienteController@store');
@@ -38,6 +46,7 @@ Route::get('Localidades','LocalidadController@index');
 Route::post('Localidad/agregar','LocalidadController@store');
 Route::post('Localidad/actualizar/{id}', 'LocalidadController@update');
 Route::get('Localidad/mostrar/{id}', 'LocalidadController@show');
+Route::get('Localidades/mostrar/{id}', 'LocalidadController@showLocalidades');
 Route::get('Localidad/eliminar/{id}', 'LocalidadController@destroy');
 
 //TipoUnidad
@@ -75,3 +84,39 @@ Route::post('Operador/agregar','OperadorController@store');
 Route::post('Operador/actualizar/{id}', 'OperadorController@update');
 Route::get('Operador/mostrar/{id}', 'OperadorController@show');
 Route::get('Operador/eliminar/{id}', 'OperadorController@destroy');
+
+//Finanzas
+Route::get('Finanzas','FinanzaController@index');
+Route::post('Finanza/agregar','FinanzaController@store');
+Route::post('Finanza/actualizar/{id}', 'FinanzaController@update');
+Route::get('Finanza/mostrar/{id}', 'FinanzaController@show');
+Route::get('Finanza/eliminar/{id}', 'FinanzaController@destroy');
+
+//Adicionales
+Route::get('Adicionales','AdicionalController@index');
+Route::post('Adicional/agregar','AdicionalController@store');
+Route::post('Adicional/actualizar/{id}', 'AdicionalController@update');
+Route::get('Adicional/mostrar/{id}', 'AdicionalController@show');
+Route::get('Adicional/eliminar/{id}', 'AdicionalController@destroy');
+
+//Evidencias PENDIENTE
+Route::get('Evidencias','EvidenciaController@index');
+Route::post('Evidencia/agregar','EvidenciaController@store');
+Route::post('Evidencia/actualizar/{id}', 'EvidenciaController@update');
+Route::get('Evidencia/mostrar/{id}', 'EvidenciaController@show');
+Route::get('Evidencia/eliminar/{id}', 'EvidenciaController@destroy');
+
+//FasesMovimientos
+Route::get('FasesMovimientos','FaseMovimientoController@index');
+Route::post('FaseMovimiento/agregar','FaseMovimientoController@store');
+Route::post('FaseMovimiento/actualizar/{id}', 'FaseMovimientoController@update');
+Route::get('FaseMovimiento/mostrar/{id}', 'FaseMovimientoController@show');
+Route::get('FaseMovimiento/eliminar/{id}', 'FaseMovimientoController@destroy');
+
+//Movimientos
+Route::get('Movimientos','MovimientoController@index');
+Route::post('Movimiento/agregar','MovimientoController@store');
+Route::get('Movimiento/crear','MovimientoController@create');
+Route::post('Movimiento/actualizar/{id}', 'MovimientoController@update');
+Route::get('Movimiento/mostrar/{id}', 'MovimientoController@show');
+Route::get('Movimiento/eliminar/{id}', 'MovimientoController@destroy');

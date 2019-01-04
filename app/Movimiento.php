@@ -9,7 +9,7 @@ class Movimiento extends Model
 
     protected $table = 'mov';
 
-    protected $fillable = ['FecCre', 'FecAct', 'FecSer', 'FecSol', 'FecRea', 'FasMovId', 'CliLocId', 'RefCli', 'ObsMov', 'KilBru', 'KilNet', 'NumTar', 'AdiId1', 'AdiId2', 'AdiId3', 'UseId1', 'SemSol', 'SemSer', 'FacTar', 'FacTarTot'];
+    protected $fillable = ['FecCre', 'FecAct', 'FecSer', 'FecSol', 'FecRea', 'FasMovId', 'CliLocId', 'RefCli', 'ObsMov', 'KilBru', 'KilNet', 'NumTar', 'AdiId1', 'AdiId2', 'AdiId3', 'UseId1', 'SemSol','SemRea', 'SemSer', 'FacTar', 'FacTarTot'];
 
     protected $primaryKey = 'MovId';
     /* Hay 3 adicionales, checar si puedo

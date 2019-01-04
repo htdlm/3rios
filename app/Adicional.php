@@ -8,7 +8,7 @@ class Adicional extends Model
 {
     protected $table = 'adi';
 
-    protected $fillable = ['DesId', 'UniId', 'CosId', 'ObsAdi'];
+    protected $fillable = ['DesAdi', 'UniAdi', 'CosAdi', 'ObsAdi'];
 
     protected $primaryKey = 'AdiId';
 

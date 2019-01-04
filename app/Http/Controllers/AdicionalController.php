@@ -3,24 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Unidad;
-use App\TipoUnidad;
-use App\Clase;
+use App\Adicional;
 use Session;
 
-class UnidadController extends Controller
+class AdicionalController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+     public function index()
      {
-           $unidades=Unidad::all();
-           $tipounidades=TipoUnidad::all();
-           $clases=Clase::all();
-           return view('Unidad.index',compact('unidades','tipounidades','clases'));
+         $adicionales = Adicional::all();
+         return view('Adicional.index', compact('adicionales'));
      }
 
      /**
@@ -41,16 +37,17 @@ class UnidadController extends Controller
       */
      public function store(Request $request)
      {
-       $unidad = new Unidad();
-       $unidad->fill($request->all());
-       if ($unidad->save()) {
-           Session::flash('message', 'Unidad agregada correctamente');
-           Session::flash('class', 'success');
-       } else {
-           Session::flash('message', 'Algo salio mal');
-           Session::flash('class', 'danger');
-       }
-       return back();
+         $adicional = new Adicional();
+         $adicional->fill($request->all());
+         if ($adicional->save()) {
+             Session::flash('message', 'Adicional agregado correctamente');
+             Session::flash('class', 'success');
+         } else {
+             Session::flash('message', 'Algo salio mal');
+             Session::flash('class', 'danger');
+         }
+         return back();
+
      }
 
      /**
@@ -61,7 +58,7 @@ class UnidadController extends Controller
       */
      public function show($id)
      {
-       return Unidad::find($id);
+         return Adicional::find($id);
      }
 
      /**
@@ -84,16 +81,16 @@ class UnidadController extends Controller
       */
      public function update(Request $request, $id)
      {
-       $unidad = Unidad::find($id);
-       $unidad->fill($request->all());
-       if ($unidad->save()) {
-           Session::flash('message', 'Tipo de unidad actualizado correctamente');
-           Session::flash('class', 'success');
-       } else {
-           Session::flash('message', 'Algo salio mal');
-           Session::flash('class', 'danger');
-       }
-       return back();
+         $adicional = Adicional::find($id);
+         $adicional->fill($request->all());
+         if ($adicional->save()) {
+             Session::flash('message', 'Adicional actualizado correctamente');
+             Session::flash('class', 'success');
+         } else {
+             Session::flash('message', 'Algo salio mal');
+             Session::flash('class', 'danger');
+         }
+         return back();
      }
 
      /**
@@ -104,11 +101,11 @@ class UnidadController extends Controller
       */
      public function destroy($id)
      {
-       Unidad::destroy($id);
+         Adicional::destroy($id);
 
-       Session::flash('message', 'Unidad eliminado correctamente');
-       Session::flash('class', 'success');
+         Session::flash('message', 'Adicional eliminado correctamente');
+         Session::flash('class', 'success');
 
-       return back();
+         return back();
      }
- }
+  }

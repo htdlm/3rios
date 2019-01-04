@@ -22,21 +22,13 @@ Nuevo Operador
 			<label for="telefono">Telefono</label>
 			<input type="number" class="form-control" placeholder="Telefono" name="TelOpe" value="{{old('TelOpe')}}">
 
-			<label for="rfc">Seguro social</label>
-			<input type="number" class="form-control" placeholder="Numero de Seguro Social" name="NssOpe" value="{{old('NssOpe')}}">
-		</div>
-		<div class="col-lg-6">
-			<label for="Localidad">Contacto de Emergencia</label>
-			<input type="text" class="form-control" placeholder="Persona de contacto emergencia" name="ConEmeOpe" value="{{old('ConEmeOpe')}}">
-
-			<label for="telefono">Telefono de emergencia</label>
-			<input type="number" class="form-control" placeholder="Telefono de Emergencia" name="TelEmeOpe" value="{{old('TelEmeOpe')}}">
-
 			<label for="nextel">Nextel</label>
 			<input type="text" class="form-control" placeholder="Numero Nextel" name="NexOpe" value="{{old('NexOpe')}}">
 
-			<label for="distancia">Distancia</label>
-			<input type="number" class="form-control" placeholder="Distancia en km" name="DisOpe" value="{{old('DisOpe')}}">
+		</div>
+		<div class="col-lg-6">
+			<label for="rfc">Seguro social</label>
+			<input type="number" class="form-control" placeholder="Numero de Seguro Social" name="NssOpe" value="{{old('NssOpe')}}">
 
 			<label for="clase">Clase</label>
 			<select class="form-control" name="ClaId">
@@ -44,6 +36,14 @@ Nuevo Operador
 				<option value="{{$clase->ClaId}}">{{$clase->DesCla}}</option>
 				@endforeach
 			</select>
+
+			<label for="Localidad">Contacto de Emergencia</label>
+			<input type="text" class="form-control" placeholder="Persona de contacto emergencia" name="ConEmeOpe" value="{{old('ConEmeOpe')}}">
+
+			<label for="telefono">Telefono de emergencia</label>
+			<input type="number" class="form-control" placeholder="Telefono de Emergencia" name="TelEmeOpe" value="{{old('TelEmeOpe')}}">
+
+
 
 			<label for="observacion">Observacion</label>
 			<textarea class="form-control" placeholder="Observaciones" name="ObsOpe" value="{{old('ObsOpe')}}"></textarea>

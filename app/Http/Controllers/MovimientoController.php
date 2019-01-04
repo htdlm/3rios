@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Localidad;
 use App\Cliente;
+use App\Movimiento;
+use App\FaseMovimiento;
+use App\Adicional;
 use Session;
 
-class LocalidadController extends Controller
+class MovimientoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +18,7 @@ class LocalidadController extends Controller
      */
     public function index()
     {
-      $localidades=Localidad::all();
-      $clientes=Cliente::all();
-      return view('Localidad.index',compact('localidades','clientes'));
+
     }
 
     /**
@@ -28,7 +28,10 @@ class LocalidadController extends Controller
      */
     public function create()
     {
-        //
+      $clientes=Cliente::all();
+      $fases=FaseMovimiento::all();
+      $adicionales=Adicional::all();
+      return view('Movimiento.crear',compact('clientes','fases','adicionales'));
     }
 
     /**
@@ -39,16 +42,17 @@ class LocalidadController extends Controller
      */
     public function store(Request $request)
     {
-        $localidad=new Localidad();
-        $localidad->fill($request->all());
-        if ($localidad->save()) {
-            Session::flash('message', 'Localidad agregada correctamente');
-            Session::flash('class', 'success');
-        } else {
-            Session::flash('message', 'Algo salio mal');
-            Session::flash('class', 'danger');
-        }
-        return back();
+      $movimiento=new Movimiento();
+      $movimiento->fill($request->all());
+      $movimiento->UseId1=Auth()->user()->UseId;
+      if($movimiento->save()){
+        Session::flash('message','Movimiento agregado correctamente');
+        Session::flash('class','success');
+      }else{
+        Session::flash('message','Algo salio mal');
+        Session::flash('class','danger');
+      }
+      return back();
     }
 
     /**
@@ -59,12 +63,7 @@ class LocalidadController extends Controller
      */
     public function show($id)
     {
-        return Localidad::find($id);
-    }
-
-    public function showLocalidades($idCliente)
-    {
-        return Localidad::where('CliId',$idCliente)->get();
+        //
     }
 
     /**
@@ -87,16 +86,7 @@ class LocalidadController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $localidad = Localidad::find($id);
-      $localidad->fill($request->all());
-      if ($localidad->save()) {
-          Session::flash('message', 'Localidad actualizada correctamente');
-          Session::flash('class', 'success');
-      } else {
-          Session::flash('message', 'Algo salio mal');
-          Session::flash('class', 'danger');
-      }
-      return back();
+        //
     }
 
     /**
@@ -107,11 +97,6 @@ class LocalidadController extends Controller
      */
     public function destroy($id)
     {
-      Localidad::destroy($id);
-
-      Session::flash('message', 'Localidad eliminada correctamente');
-      Session::flash('class', 'success');
-
-      return back();
+        //
     }
 }

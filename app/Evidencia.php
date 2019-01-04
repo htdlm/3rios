@@ -16,6 +16,6 @@ class Evidencia extends Model
     movimiento */
     public function movimiento()
     {
-        # code...
+        return $this->belongsTo(Movimiento::class,'MovId');
     }
 }

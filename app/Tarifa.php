@@ -14,16 +14,16 @@ class Tarifa extends Model
 
     public function cliente()
     {
-        # code...
+      return $this->belongsTo(Cliente::class,'CliId');
     }
 
     public function tipo_unidad()
     {
-        # code...
+      return $this->belongsTo(TipoUnidad::class,'TipUniId');
     }
 
     public function tipo_servicio()
     {
-        # code...
+      return $this->belongsTo(TipoServicio::class,'TipSerId');
     }
 }

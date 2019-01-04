@@ -3,24 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Unidad;
-use App\TipoUnidad;
-use App\Clase;
+use App\Finanza;
+use App\Movimiento;
 use Session;
 
-class UnidadController extends Controller
+class FinanzaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+     public function index()
      {
-           $unidades=Unidad::all();
-           $tipounidades=TipoUnidad::all();
-           $clases=Clase::all();
-           return view('Unidad.index',compact('unidades','tipounidades','clases'));
+         $finanzas = Finanza::all();
+         $movimientos=Movimiento::all();
+         return view('Finanza.index', compact('finanzas','movimientos'));
      }
 
      /**
@@ -41,16 +39,19 @@ class UnidadController extends Controller
       */
      public function store(Request $request)
      {
-       $unidad = new Unidad();
-       $unidad->fill($request->all());
-       if ($unidad->save()) {
-           Session::flash('message', 'Unidad agregada correctamente');
-           Session::flash('class', 'success');
-       } else {
-           Session::flash('message', 'Algo salio mal');
-           Session::flash('class', 'danger');
-       }
-       return back();
+
+       /* IMPORTANTE CHECAR LAS OPERACIONES PARA CALCULAR EL TOTAL ANTES DE GUARDAR*/
+         $finanza = new Finanza();
+         $finanza->fill($request->all());
+         if ($finanza->save()) {
+             Session::flash('message', 'Finanza agregada correctamente');
+             Session::flash('class', 'success');
+         } else {
+             Session::flash('message', 'Algo salio mal');
+             Session::flash('class', 'danger');
+         }
+         return back();
+
      }
 
      /**
@@ -61,7 +62,7 @@ class UnidadController extends Controller
       */
      public function show($id)
      {
-       return Unidad::find($id);
+         return Finanza::find($id);
      }
 
      /**
@@ -84,16 +85,16 @@ class UnidadController extends Controller
       */
      public function update(Request $request, $id)
      {
-       $unidad = Unidad::find($id);
-       $unidad->fill($request->all());
-       if ($unidad->save()) {
-           Session::flash('message', 'Tipo de unidad actualizado correctamente');
-           Session::flash('class', 'success');
-       } else {
-           Session::flash('message', 'Algo salio mal');
-           Session::flash('class', 'danger');
-       }
-       return back();
+         $finanza = Finanza::find($id);
+         $finanza->fill($request->all());
+         if ($finanza->save()) {
+             Session::flash('message', 'Finanza actualizada correctamente');
+             Session::flash('class', 'success');
+         } else {
+             Session::flash('message', 'Algo salio mal');
+             Session::flash('class', 'danger');
+         }
+         return back();
      }
 
      /**
@@ -104,11 +105,11 @@ class UnidadController extends Controller
       */
      public function destroy($id)
      {
-       Unidad::destroy($id);
+         Finanza::destroy($id);
 
-       Session::flash('message', 'Unidad eliminado correctamente');
-       Session::flash('class', 'success');
+         Session::flash('message', 'Finanza eliminada correctamente');
+         Session::flash('class', 'success');
 
-       return back();
+         return back();
      }
  }
