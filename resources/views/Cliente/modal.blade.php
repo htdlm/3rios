@@ -30,6 +30,7 @@ Nuevo Cliente
 			<label for="observacion">Observacion</label>
 			<textarea class="form-control" placeholder="Observaciones" name="ObsCli" value="{{old('ObsCli')}}"></textarea>
 		</div>
+		<hr>
 	</div>
 	<input type="submit" class="btn btn-success btn-block btn-lg mt-4" value="Agregar" id="btnCrear">
 </form>

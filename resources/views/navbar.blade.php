@@ -18,7 +18,7 @@
         Mas..
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <a class="dropdown-item" href="/Tarifas">Tarifas</a>
+        <a class="dropdown-item" href="/Tarifas">Tarifas</a>
         <a class="dropdown-item" href="/Finanzas">Finanzas</a>
         <a class="dropdown-item" href="/Adicionales">Adicionales</a>
         <a class="dropdown-item" href="/Evidencias">Evidencias</a>
@@ -29,4 +29,10 @@
     <a class="nav-link" href="/Movimiento/crear" role="button">
         Movimiento
     </a>
-  </li>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="/Evento/buscar" role="button">
+      Buscar  Eventos
+    </a>
+</li>

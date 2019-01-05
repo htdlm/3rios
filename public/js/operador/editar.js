@@ -16,8 +16,9 @@ function editar(id) {
         $('input[name=ConEmeOpe]').val(data.ConEmeOpe);
         $('input[name=TelEmeOpe]').val(data.TelEmeOpe);
         $('textarea[name=ObsOpe]').val(data.ObsOpe);
+
         $('select[name=ClaId]').find(":selected").attr("selected", false);
-        $("select[name=ClaId] option[value='" + data.ClaiId + "']").attr("selected", true);
+        $("select[name=ClaId] option[value='" + data.ClaId + "']").attr("selected", true);
 
 
 

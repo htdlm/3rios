@@ -21,7 +21,7 @@ class Unidad extends Model
     tabla unidad_operador*/
     public function operadores()
     {
-        # code...
+        return $this->belongsToMany(Operador::class,'uni_ope','UniId','OpeId');
     }
 
     public function clase()

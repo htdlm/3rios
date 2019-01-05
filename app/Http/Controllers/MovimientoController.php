@@ -44,6 +44,8 @@ class MovimientoController extends Controller
     {
       $movimiento=new Movimiento();
       $movimiento->fill($request->all());
+
+      //Id del usuario que realizo el movimiento
       $movimiento->UseId1=Auth()->user()->UseId;
       if($movimiento->save()){
         Session::flash('message','Movimiento agregado correctamente');

@@ -8,7 +8,9 @@ class Evento extends Model
 {
     protected $table = 'eve';
 
-    protected $fillable = ['MovId', 'FecAct', 'FecSol', 'FecRea', 'FasMovId', 'ObsEve', 'AdiId', 'UseId', 'SemAct', 'SemSol', 'SemRea'];
+    protected $fillable = ['MovId', 'RefCli','FecAct', 'FecCreEve',
+    'FecSol', 'FecRea', 'FasMovId', 'ObsEve', 'AdiId',
+     'UseId', 'SemAct', 'SemSol', 'SemRea'];
 
     protected $primaryKey = 'EveId';
 
@@ -16,7 +18,7 @@ class Evento extends Model
     a un movimiento*/
     public function movimiento()
     {
-        # code...
+      return $this->belongsTo(Movimiento::class,'MovId');
     }
 
     /* Codigo con el que el cliente encuentra
@@ -29,19 +31,19 @@ class Evento extends Model
     /* Por si cada evento genera un adicional*/
     public function adicional()
     {
-        # code...
+        return $this->belongsTo(Adicional::class,'AdiId');
     }
 
     /* Cada evento es registrado por un usuario logueado */
     public function user()
     {
-        # code...
+        return $this->belongsTo(User::class,'UseId');
     }
 
     /* Cada evento tiene
     una fase de movimiento*/
     public function fase_movimiento()
     {
-        # code...
+      return $this->belongsTo(FaseMovimiento::class,'FasMovId');
     }
 }

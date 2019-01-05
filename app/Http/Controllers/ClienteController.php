@@ -42,6 +42,7 @@ class ClienteController extends Controller
         if ($cliente->save()) {
             Session::flash('message', 'Cliente agregado correctamente');
             Session::flash('class', 'success');
+
         } else {
             Session::flash('message', 'Algo salio mal');
             Session::flash('class', 'danger');

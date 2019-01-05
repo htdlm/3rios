@@ -3,24 +3,50 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Operador;
-use App\Clase;
-use App\Unidad;
+use App\Evento;
+use App\Adicional;
+use App\FaseMovimiento;
+use App\Cliente;
+use App\Movimiento;
 use Session;
 
-class OperadorController extends Controller
+class EventoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-     public function index()
+     public function indexMinigrip($id)
      {
-         $operadores = Operador::all();
-         $clases=Clase::all();
-         $unidades=Unidad::all();
-         return view('Operador.index', compact('operadores','clases','unidades'));
+       $fases=FaseMovimiento::all();
+       $adicionales=Adicional::all();
+       $movimientos=Movimiento::where('RefCli',$id)->get();
+       if(count($movimientos)==0){
+         Session::flash('message','No hay registros con estos datos');
+         Session::flash('class','warning');
+         return back();
+       }
+       return view('Evento.index', compact('movimientos','fases','adicionales'));
+     }
+
+       public function indexLocalidad($id)
+       {
+         $fases=FaseMovimiento::all();
+         $adicionales=Adicional::all();
+         $movimientos=Movimiento::where('CliLocId',$id)->get();
+         if(count($movimientos)==0){
+           Session::flash('message','No hay registros con estos datos');
+           Session::flash('class','warning');
+           return back();
+         }
+       return view('Evento.index', compact('movimientos','fases','adicionales'));
+     }
+
+     public function buscar()
+     {
+       $clientes=Cliente::all();
+       return view('Evento.buscar',compact('clientes'));
      }
 
      /**
@@ -41,14 +67,15 @@ class OperadorController extends Controller
       */
      public function store(Request $request)
      {
-         $operador = new Operador();
-         $operador->fill($request->all());
-         if ($operador->save()) {
-             Session::flash('message', 'Operador agregado correctamente');
+         $evento = new Evento();
+         $evento->fill($request->all());
+
+        //Traer el id de usuario de la sesion
+          $evento->UseId=Auth()->user()->UseId;
+
+         if ($evento->save()) {
+             Session::flash('message', 'Evento agregado correctamente');
              Session::flash('class', 'success');
-             if($request->input('UniId')!=0){
-               $operador->unidades()->attach($request->input('UniId'));
-             }
          } else {
              Session::flash('message', 'Algo salio mal');
              Session::flash('class', 'danger');
@@ -65,7 +92,7 @@ class OperadorController extends Controller
       */
      public function show($id)
      {
-         return Operador::find($id);
+         return Cliente::find($id);
      }
 
      /**
@@ -88,14 +115,11 @@ class OperadorController extends Controller
       */
      public function update(Request $request, $id)
      {
-         $operador = Operador::find($id);
-         $operador->fill($request->all());
-         if ($operador->save()) {
-             Session::flash('message', 'Operador actualizado correctamente');
+         $evento = Cliente::find($id);
+         $evento->fill($request->all());
+         if ($evento->save()) {
+             Session::flash('message', 'Cliente actualizado correctamente');
              Session::flash('class', 'success');
-             if($request->input('UniId')!=0){
-               $operador->unidades()->attach($request->input('UniId'));
-             }
          } else {
              Session::flash('message', 'Algo salio mal');
              Session::flash('class', 'danger');
@@ -111,9 +135,9 @@ class OperadorController extends Controller
       */
      public function destroy($id)
      {
-         Operador::destroy($id);
+         Cliente::destroy($id);
 
-         Session::flash('message', 'Operador eliminado correctamente');
+         Session::flash('message', 'Cliente eliminado correctamente');
          Session::flash('class', 'success');
 
          return back();

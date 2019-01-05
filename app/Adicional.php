@@ -22,6 +22,6 @@ class Adicional extends Model
     /* y/o a un evento*/
     public function evento()
     {
-        # code...
+      return $this->belongsTo(Evento::class,'AdiId');
     }
 }

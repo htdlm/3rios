@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Unidad;
 use App\TipoUnidad;
 use App\Clase;
+use App\Operador;
+use App\Transportista;
+
 use Session;
 
 class UnidadController extends Controller
@@ -20,7 +23,11 @@ class UnidadController extends Controller
            $unidades=Unidad::all();
            $tipounidades=TipoUnidad::all();
            $clases=Clase::all();
-           return view('Unidad.index',compact('unidades','tipounidades','clases'));
+
+           $operadores=Operador::all();
+           $transportistas=Transportista::all();
+
+           return view('Unidad.index',compact('unidades','tipounidades','clases','operadores','transportistas'));
      }
 
      /**
@@ -46,6 +53,9 @@ class UnidadController extends Controller
        if ($unidad->save()) {
            Session::flash('message', 'Unidad agregada correctamente');
            Session::flash('class', 'success');
+          if($request->input('OpeId')!=0){
+            $unidad->operadores()->attach($request->input('OpeId'));
+          }
        } else {
            Session::flash('message', 'Algo salio mal');
            Session::flash('class', 'danger');
@@ -89,6 +99,9 @@ class UnidadController extends Controller
        if ($unidad->save()) {
            Session::flash('message', 'Tipo de unidad actualizado correctamente');
            Session::flash('class', 'success');
+           if($request->input('OpeId')!=0){
+             $unidad->operadores()->attach($request->input('OpeId'));
+           }
        } else {
            Session::flash('message', 'Algo salio mal');
            Session::flash('class', 'danger');

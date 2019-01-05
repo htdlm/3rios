@@ -52,7 +52,7 @@ class Movimiento extends Model
     Cada movimiento genera N eventos */
     public function eventos()
     {
-        # code...
+        return $this->hasMany(Evento::class,'MovId');
     }
 
     /* Carga, descarga, etc.. */
@@ -65,7 +65,7 @@ class Movimiento extends Model
     una localidad de un cliente */
     public function cliente_localidad()
     {
-        # code...
+      return $this->hasOne(Localidad::class,'LocId','CliLocId');
     }
 
     /* Parte importante, cada movimiento genera

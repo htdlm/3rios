@@ -19,12 +19,12 @@ class Operador extends Model
 
     public function unidades()
     {
-        # code...
+        return $this->belongsToMany(Unidad::class,'uni_ope','OpeId','UniId');
     }
 
     public function clase()
     {
-        # code...
+        return $this->belongsTo(Clase::class,'ClaId');
     }
 
 }

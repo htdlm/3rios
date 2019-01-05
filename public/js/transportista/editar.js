@@ -10,7 +10,7 @@ function editar(id) {
         $('input[name=ConTra]').val(data.ConTra);
         $('input[name=DirTra]').val(data.DirTra);
         $('input[name=TelTra]').val(data.TelTra);
-        $('input[name=Nextra]').val(data.NexTra);
+        $('input[name=NexTra]').val(data.NexTra);
         $('input[name=EmaTra]').val(data.EmaTra);
         $('input[name=RfcTra]').val(data.RfcTra);
         $('textarea[name=ObsTra]').val(data.ObsTra);

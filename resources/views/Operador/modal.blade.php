@@ -1,14 +1,10 @@
-@extends('layouts.modal')
-@section('titulo')
-Nuevo Operador
-@endsection
-@section('body')
+@extends('layouts.modal') @section('titulo') Nuevo Operador @endsection @section('body')
 <form action="Operador/agregar" method="post" id="frmAgregar">
 	{{csrf_field()}}
 	<div class="row">
 		<div class="col-lg-6">
 			<label for="Operador">Operador</label>
-			<input type="text" class="form-control" placeholder="Nombre del Operador" name="NomOpe" value="{{old('NomOpe')}}" autofocus>
+			<input type="text" class="form-control" placeholder="Nombre del Operador" name="NomOpe" value="{{old('NomOpe')}}" autofocus="autofocus">
 
 			<label for="Operador">Descripcion</label>
 			<input type="text" class="form-control" placeholder="Descripcion del Operador" name="DesOpe" value="{{old('NomOpe')}}">
@@ -32,7 +28,7 @@ Nuevo Operador
 
 			<label for="clase">Clase</label>
 			<select class="form-control" name="ClaId">
-				@foreach($clases  as $clase)
+				@foreach($clases as $clase)
 				<option value="{{$clase->ClaId}}">{{$clase->DesCla}}</option>
 				@endforeach
 			</select>
@@ -43,11 +39,20 @@ Nuevo Operador
 			<label for="telefono">Telefono de emergencia</label>
 			<input type="number" class="form-control" placeholder="Telefono de Emergencia" name="TelEmeOpe" value="{{old('TelEmeOpe')}}">
 
-
-
 			<label for="observacion">Observacion</label>
 			<textarea class="form-control" placeholder="Observaciones" name="ObsOpe" value="{{old('ObsOpe')}}"></textarea>
 
+		</div>
+		<div class="col-lg-12">
+			<hr>
+			<label for="unidad">Unidad</label>
+			<select class="form-control" name="UniId">
+				<option value="0">Seleccione una opcion</option>
+				@foreach($unidades as $unidad)
+				<option value="{{$unidad->UniId}}">{{$unidad->DesUni}}
+					({{$unidad->PlaUni}})</option>
+				@endforeach
+			</select>
 		</div>
 	</div>
 	<input type="submit" class="btn btn-success btn-block btn-lg mt-4" value="Agregar" id="btnCrear">

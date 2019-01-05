@@ -120,3 +120,14 @@ Route::get('Movimiento/crear','MovimientoController@create');
 Route::post('Movimiento/actualizar/{id}', 'MovimientoController@update');
 Route::get('Movimiento/mostrar/{id}', 'MovimientoController@show');
 Route::get('Movimiento/eliminar/{id}', 'MovimientoController@destroy');
+
+
+//Eventos
+Route::get('Evento/buscar','EventoController@buscar');
+Route::get('Eventos/minigrip/{id}','EventoController@indexMinigrip');
+Route::get('Eventos/localidad/{id}','EventoController@indexLocalidad');
+Route::post('Evento/agregar','EventoController@store');
+Route::get('Evento/crear','EventoController@create');
+Route::post('Evento/actualizar/{id}', 'EventoController@update');
+Route::get('Evento/mostrar/{id}', 'EventoController@show');
+Route::get('Evento/eliminar/{id}', 'EventoController@destroy');
