@@ -66,8 +66,7 @@ class EventoController extends Controller
       * @return \Illuminate\Http\Response
       */
      public function store(Request $request)
-     {
-        return $request;
+     {        
          $evento = new Evento();
          $evento->fill($request->all());
 
