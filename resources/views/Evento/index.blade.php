@@ -11,19 +11,11 @@
 @foreach($movimientos as $movimiento)
 <div class="row">
 	<div class="col-lg-12">
-
 		<div class="row">
-			@if(Auth::check() && Auth::user()->hasRole('Administrador'))
-			<div class="col-lg-4">
-				<button class="btn btn-primary btn-block btn-lg btnNuevo mb-4" data-target="#ventana" data-toggle="modal" data-Evento="{{$movimiento}}">
-					Añadir Evento
-					<img alt="" src="{{asset('imagenes/agregar.png')}}"/>
-				</button>
-			</div>
-			@endif
+
 			<div class="col-lg-8">
 				<div class="alert alert-primary">
-					@if(Auth::check() && Auth::user()->hasRole('Administrador'))
+					@if(Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
 					<h3 class="text-left">Id del movimiento:
 						<strong>
 							{{$movimiento->MovId}}</strong>
@@ -35,6 +27,14 @@
 					</h3>
 				</div>
 			</div>
+			@if(Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
+			<div class="col-lg-4">
+				<button class="btn btn-primary btn-block btn-lg btnNuevo mb-4" data-target="#ventana" data-toggle="modal" data-Evento="{{$movimiento}}">
+					Añadir Evento
+					<img alt="" src="{{asset('imagenes/agregar.png')}}"/>
+				</button>
+			</div>
+			@endif
 		</div>
 	</div>
 </div>
@@ -72,7 +72,7 @@
 	</div>
 
 	<div class="col-lg-4">
-		<div class="card">
+		<div class="card mb-4">
 			<div class="card-header">
 				<h3 class="text-center">Semanas</h3>
 			</div>
@@ -96,12 +96,12 @@
 	</div>
 
 	<div class="col-lg-4">
-		<div class="card">
+		<div class="card mb-4">
 			<div class="card-header">
 				<h3 class="text-center">Datos Movimiento</h3>
 			</div>
 			<div class="card-body">
-				@if($evento->fase_movimiento->PriFas && Auth::check() && Auth::user()->hasRole('Administrador'))
+				@if($evento->fase_movimiento->PriFas && Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
 				<p class="card-text">Fase del Movimiento:
 						<strong>{{$evento->fase_movimiento->FasMov}}
 					</strong>
@@ -125,7 +125,7 @@
 				</p>
 				@endif
 
-				@if(Auth::check() && Auth::user()->hasRole('Administrador'))
+				@if(Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
 				<p class="card-text">Usuario capturador:
 					<strong>{{$evento->user->name}}
 					</strong>

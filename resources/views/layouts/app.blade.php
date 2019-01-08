@@ -38,11 +38,6 @@
                                 @include('navbar')
                               @else
                               <li class="nav-item">
-                                  <a class="nav-link" href="/Eventos/adr" role="button">
-                                      Eventos
-                                  </a>
-                              </li>
-                              <li class="nav-item">
                                   <a class="nav-link" href="/Evento/buscar" role="button">
                                     Buscar  Eventos
                                   </a>

@@ -2,9 +2,8 @@
 <div class="row">
     <div class="col-lg-12">
         @if(Session::has('message'))
-        <div class="card-footer">
-            <div class="alert alert-{{Session::get('class')}} alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>{{Session::get('message')}}</div>
+        <div class="alert alert-{{Session::get('class')}} alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>{{Session::get('message')}}
         </div>
         @endif
         <div class="card">
@@ -23,7 +22,9 @@
                 </select>
 
                 <label for="cliente">Localidad del cliente</label>
-                <select class="form-control" name="CliLocId"></select>
+                <select class="form-control" name="CliLocId">
+                    <!-- Se llena automaticamente-->
+                </select>
             </div>
             <div class="card-footer">
                 <button type="button" name="button" class="btn btn-success btn-lg btn-block" id="btnBuscar">BUSCAR</button>

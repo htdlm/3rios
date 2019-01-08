@@ -84,7 +84,7 @@
                         <img src="{{asset('imagenes/logo.png')}}" alt="" class="img-fluid">
                     </div>
                     <br>
-                    <a href="{{url('/Estatus')}}" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Rastrear pedido</a>
+                    <a href="{{url('/Evento/buscar')}}" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Rastrear pedido</a>
                 </div>
                 @if(Session::has('message'))
                 <div class="alert alert-{{Session::get('class')}} alert-dismissable">
