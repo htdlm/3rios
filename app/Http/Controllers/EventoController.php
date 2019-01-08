@@ -67,6 +67,7 @@ class EventoController extends Controller
       */
      public function store(Request $request)
      {
+        return $request;
          $evento = new Evento();
          $evento->fill($request->all());
 

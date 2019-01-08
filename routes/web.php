@@ -134,7 +134,6 @@ Route::group(['middleware' => ['capturador']],function(){
 Route::get('Eventos/minigrip/{id}','EventoController@indexMinigrip');
 Route::get('Eventos/localidad/{id}','EventoController@indexLocalidad');
 Route::post('Evento/agregar','EventoController@store');
-Route::get('Evento/crear','EventoController@create');
 Route::post('Evento/actualizar/{id}', 'EventoController@update');
 Route::get('Evento/mostrar/{id}', 'EventoController@show');
 Route::get('Evento/eliminar/{id}', 'EventoController@destroy');

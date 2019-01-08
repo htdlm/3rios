@@ -26,7 +26,7 @@ class UnidadController extends Controller
 
            $transportistas=Transportista::all();
 
-           return view('Unidad.index',compact('unidades','tipounidades','clases','transportistas'));
+           return view('unidad.index',compact('unidades','tipounidades','clases','transportistas'));
      }
 
      /**
