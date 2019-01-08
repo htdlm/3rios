@@ -17,7 +17,7 @@
             </select>
 
             <label for="observacion">Observacion</label>
-            <input type="text" class="form-control" placeholder="Observaciones" name="ObsUni" value="{{old('ObsUni')}}">
+            <textarea class="form-control" placeholder="Observaciones" name="ObsUni" value="{{old('ObsUni')}}"></textarea>
 
             <label for="clase">Clase</label>
             <select class="form-control" name="ClaId">
@@ -26,11 +26,11 @@
                 @endforeach
             </select>
             <hr>
-            <label for="operador">Operador</label>
-            <select class="form-control" name="OpeId">
-              <option value="0">Seleccione una opcion</option>
-                @foreach($operadores as $operador)
-                <option value="{{$operador->OpeId}}">{{$operador->NomOpe}}</option>
+            <label for="transportista">Transportista</label>
+            <select class="form-control" name="TraId">
+                <option value="0">Seleccione una opcion</option>
+                @foreach($transportistas as $transportista)
+                <option value="{{$transportista->TraId}}">{{$transportista->NomTra}}</option>
                 @endforeach
             </select>
         </div>

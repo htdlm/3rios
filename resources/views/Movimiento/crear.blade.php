@@ -1,8 +1,7 @@
-@extends('layouts.app') @section('content')
-@if(Session::has('message'))
+@extends('layouts.app') @section('content') @if(Session::has('message'))
 <div class="card-footer">
-  <div class="alert alert-{{Session::get('class')}} alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>{{Session::get('message')}}</div>
+    <div class="alert alert-{{Session::get('class')}} alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>{{Session::get('message')}}</div>
 </div>
 @endif
 <h1 class="text-center">Nuevo Movimiento</h1>
@@ -56,6 +55,16 @@
 
                 <label for="minigrip">Referencia MiniGrip</label>
                 <input class="form-control" type="text" name="RefCli" value="{{old('RefCli')}}" placeholder="Numero de Referencia Minigrip">
+
+                <label for="TipoUnidad">Tipos de unidad</label>
+                <select class="form-control" name="TipUni" id="tipoUnidad">
+                  <!-- Llenar automatico -->
+                </select>
+
+                <label for="Unidades">Unidades</label>
+                <select name="UniId" id="unidad" class="form-control">
+                  <!-- Llenar automatico -->
+                </select>
             </div>
             <div class="col-lg-3">
                 <h3 class="text-center">Adicionales</h3>
@@ -99,7 +108,7 @@
                 <input class="form-control" type="number" name="NumTar" value="{{old('NumTar')}}" placeholder="Cantidad de Tarimas">
 
                 <label for="kilosbrutos">Kilos Brutos</label>
-                <input class="form-control" type="number" step="any" name="KilBru" value="{{old('KilBru')}}" placeholder="Cantidad de kilos brutos">
+                <input class="form-control" type="number" step="any" name="KilBru" required value="{{old('KilBru')}}" placeholder="Cantidad de kilos brutos">
 
             </div>
             <div class="col-lg-6">
@@ -112,12 +121,13 @@
                 <!-- Calculo entre los kilos netos y la tarifa -->
                 <label for="totaltarifa">Factor total de la Tarifa</label>
                 <input class="form-control" type="number" step="any" readonly="readonly" name="FacTarTot" value="{{old('FacTarTot')}}" placeholder="Total de la tarifa">
+
             </div>
             <div class="col-lg-12">
                 <label for="observaciones">Observaciones</label>
                 <textarea class="form-control" name="ObsMov" value="{{old('ObsMov')}}" placeholder="Observaciones del movimiento"></textarea>
 
-                <input type="submit" name="button" value="Registrar" class="btn btn-success btn-lg btn-block mt-4 mb-4">
+                <input type="submit" name="button" value="Registrar" class="btn btn-success btn-lg btn-block mt-4 mb-4" id="btnRegistrar">
 
             </div>
         </div>

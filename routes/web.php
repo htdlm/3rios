@@ -31,7 +31,7 @@ Route::get('/Tarifas', 'TarifaController@index');
 Route::post('/Tarifa/agregar', 'TarifaController@store');
 Route::post('/Tarifa/actualizar/{id}', 'TarifaController@update');
 Route::get('/Tarifa/mostrar/{id}', 'TarifaController@show');
-Route::get('/TarifaCliente/mostrar/{id}', 'TarifaController@showCliente');
+Route::get('/TarifaCliente/mostrar/{cliente}/{tipo}', 'TarifaController@showTipo');
 Route::get('/Tarifa/eliminar/{id}', 'TarifaController@destroy');
 
 //Clientes
@@ -54,6 +54,8 @@ Route::get('TipoUnidades','TipoUnidadController@index');
 Route::post('TipoUnidad/agregar','TipoUnidadController@store');
 Route::post('TipoUnidad/actualizar/{id}', 'TipoUnidadController@update');
 Route::get('TipoUnidad/mostrar/{id}', 'TipoUnidadController@show');
+Route::get('TipoUnidad/mostrar/tipo/{idCliente}', 'TipoUnidadController@showCliente');
+Route::get('TipoUnidad/mostrar/capacidad/{capacidad}','TipoUnidadController@showCapacidad');
 Route::get('TipoUnidad/eliminar/{id}', 'TipoUnidadController@destroy');
 
 
@@ -62,6 +64,7 @@ Route::get('Unidades','UnidadController@index');
 Route::post('Unidad/agregar','UnidadController@store');
 Route::post('Unidad/actualizar/{id}', 'UnidadController@update');
 Route::get('Unidad/mostrar/{id}', 'UnidadController@show');
+Route::get('Unidad/mostrar/tipo/{idTipo}', 'UnidadController@showTipo');
 Route::get('Unidad/eliminar/{id}', 'UnidadController@destroy');
 
 //Clase

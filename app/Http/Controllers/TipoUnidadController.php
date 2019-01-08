@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TipoUnidad;
+use App\Tarifa;
 use Session;
 
 class TipoUnidadController extends Controller
@@ -59,6 +60,20 @@ class TipoUnidadController extends Controller
     {
       return TipoUnidad::find($id);
     }
+
+    /*Dependiendo del cliente, hay una o varias Tarifas
+    donde cada una tiene un tipo de unidad*/
+    public function showCliente($idCliente)
+    {
+      $tarifas=Tarifa::where('CliId',$idCliente)->get();
+      $unidades=[];
+      foreach ($tarifas as $tarifa) {
+        $tipoUnidad=TipoUnidad::find($tarifa->TipUniId);
+        array_push($unidades,$tipoUnidad);
+      }
+      return $unidades;
+    }
+
 
     /**
      * Show the form for editing the specified resource.

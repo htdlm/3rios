@@ -33,6 +33,6 @@
 
 <li class="nav-item">
     <a class="nav-link" href="/Evento/buscar" role="button">
-      Buscar  Eventos
+        Buscar Eventos
     </a>
 </li>

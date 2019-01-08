@@ -47,6 +47,9 @@ class MovimientoController extends Controller
 
       //Id del usuario que realizo el movimiento
       $movimiento->UseId1=Auth()->user()->UseId;
+      /*Antes de guardar validar que los kilos y el transporte
+      coincidan, sino regresar un mensaje*/
+
       if($movimiento->save()){
         Session::flash('message','Movimiento agregado correctamente');
         Session::flash('class','success');

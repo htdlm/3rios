@@ -12,9 +12,13 @@ function editar(id) {
         $('select[name=TipUniId]').find(":selected").attr("selected", false);
         $("select[name=TipUniId] option[value='" + data.TipUniId + "']").attr("selected", true);
 
-        $('input[name=ObsUni]').val(data.ObsUni);
+        $('textarea[name=ObsUni]').val(data.ObsUni);
 
         $('select[name=ClaId]').find(":selected").attr("selected", false);
         $("select[name=ClaId] option[value='" + data.ClaId + "']").attr("selected", true);
+
+
+        $('select[name=TraId]').find(":selected").attr("selected", false);
+        $("select[name=TraId] option[value='" + data.TraId + "']").attr("selected", true);
     });
 }

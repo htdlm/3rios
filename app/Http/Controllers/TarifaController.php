@@ -65,9 +65,9 @@ class TarifaController extends Controller
         return Tarifa::find($id);
       }
 
-      public function showCliente($id)
+      public function showTipo($cliente,$tipo)
       {
-        $tarifa= Tarifa::where('CliId',$id)->first();
+        $tarifa=Tarifa::where('TipUniId',$tipo)->where('CliId',$cliente)->first();
         return $tarifa->TarTipUniCli;
       }
 

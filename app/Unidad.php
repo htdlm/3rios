@@ -8,7 +8,7 @@ class Unidad extends Model
 {
     protected $table = 'uni';
 
-    protected $fillable = ['DesUni', 'PlaUni', 'TipUniId', 'ObsUni','ClaId'];
+    protected $fillable = ['DesUni', 'PlaUni', 'TipUniId', 'ObsUni','ClaId','TraId'];
 
     protected $primaryKey = 'UniId';
 
@@ -34,6 +34,6 @@ class Unidad extends Model
     Una unidad pertenece a un transportista */
     public function transportista()
     {
-        # code...
+        return $this->belongsToMany(Transportista::class,'uni_ope_tra','UniId','TraId');
     }
 }

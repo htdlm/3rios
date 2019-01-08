@@ -24,10 +24,9 @@ class UnidadController extends Controller
            $tipounidades=TipoUnidad::all();
            $clases=Clase::all();
 
-           $operadores=Operador::all();
            $transportistas=Transportista::all();
 
-           return view('Unidad.index',compact('unidades','tipounidades','clases','operadores','transportistas'));
+           return view('Unidad.index',compact('unidades','tipounidades','clases','transportistas'));
      }
 
      /**
@@ -53,8 +52,8 @@ class UnidadController extends Controller
        if ($unidad->save()) {
            Session::flash('message', 'Unidad agregada correctamente');
            Session::flash('class', 'success');
-          if($request->input('OpeId')!=0){
-            $unidad->operadores()->attach($request->input('OpeId'));
+          if($request->input('TraId')!=0){
+          //  $unidad->transportista()->attach($request->input('TraId'));
           }
        } else {
            Session::flash('message', 'Algo salio mal');
@@ -72,6 +71,11 @@ class UnidadController extends Controller
      public function show($id)
      {
        return Unidad::find($id);
+     }
+
+     public function showTipo($idTipo)
+     {
+       return Unidad::where('TipUniId',$idTipo)->get();
      }
 
      /**
@@ -99,8 +103,8 @@ class UnidadController extends Controller
        if ($unidad->save()) {
            Session::flash('message', 'Tipo de unidad actualizado correctamente');
            Session::flash('class', 'success');
-           if($request->input('OpeId')!=0){
-             $unidad->operadores()->attach($request->input('OpeId'));
+          if($request->input('TraId')!=0){
+             //$unidad->transportista()->attach($request->input('TraId'));
            }
        } else {
            Session::flash('message', 'Algo salio mal');
