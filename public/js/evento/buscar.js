@@ -12,8 +12,8 @@ function buscar() {
     minigrip = $('input[name=RefCli]').val();
 
     if (minigrip != "") {
-        window.open('/Eventos/minigrip/' + minigrip);
+        window.location = '/Eventos/minigrip/' + minigrip;
     } else {
-        window.open('/Eventos/localidad/' + idLocCliente);
+        window.location = '/Eventos/localidad/' + idLocCliente;
     }
 }
