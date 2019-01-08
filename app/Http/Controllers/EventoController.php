@@ -84,8 +84,7 @@ class EventoController extends Controller
      }
 
      public function guardar(Request $request)
-     {
-       return $request;
+     {       
        $evento = new Evento();
        $evento->fill($request->all());
 
