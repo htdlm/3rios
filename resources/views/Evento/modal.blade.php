@@ -3,7 +3,7 @@
 Nuevo Evento
 @endsection
 @section('body')
-<form action="/Evento/agregar/" method="post" id="frmAgregar">
+<form action="/Evento/agregar" method="post" id="frmAgregar">
     {{csrf_field()}}
     <div class="row">
         <div class="col-lg-6">

@@ -66,7 +66,7 @@ class EventoController extends Controller
       * @return \Illuminate\Http\Response
       */
      public function store(Request $request)
-     {        
+     {
          $evento = new Evento();
          $evento->fill($request->all());
 
@@ -81,7 +81,25 @@ class EventoController extends Controller
              Session::flash('class', 'danger');
          }
          return back();
+     }
 
+     public function guardar(Request $request)
+     {
+       return $request;
+       $evento = new Evento();
+       $evento->fill($request->all());
+
+      //Traer el id de usuario de la sesion
+        $evento->UseId=Auth()->user()->UseId;
+
+       if ($evento->save()) {
+           Session::flash('message', 'Evento agregado correctamente');
+           Session::flash('class', 'success');
+       } else {
+           Session::flash('message', 'Algo salio mal');
+           Session::flash('class', 'danger');
+       }
+       return back();
      }
 
      /**
