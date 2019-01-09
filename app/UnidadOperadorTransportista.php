@@ -14,4 +14,20 @@ class UnidadOperadorTransportista extends Model
 
     /* Tabla auxiliar para relacion de muchos a muchos
 pendiente de checar relaciones */
+
+    public function transportista()
+    {
+      return $this->belongsTo(Transportista::class,'TraId');
+    }
+
+    public function unidad()
+    {
+      return $this->belongsTo(Unidad::class,'UniId');
+    }
+
+    public function operador()
+    {
+      return $this->belongsTo(Operador::class,'OpeId');
+    }
+
 }

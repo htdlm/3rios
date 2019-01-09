@@ -53,7 +53,7 @@ class UnidadController extends Controller
            Session::flash('message', 'Unidad agregada correctamente');
            Session::flash('class', 'success');
           if($request->input('TraId')!=0){
-          //  $unidad->transportista()->attach($request->input('TraId'));
+            $unidad->transportista()->attach($request->input('TraId'));
           }
        } else {
            Session::flash('message', 'Algo salio mal');
@@ -98,14 +98,12 @@ class UnidadController extends Controller
       */
      public function update(Request $request, $id)
      {
+
        $unidad = Unidad::find($id);
        $unidad->fill($request->all());
        if ($unidad->save()) {
            Session::flash('message', 'Tipo de unidad actualizado correctamente');
            Session::flash('class', 'success');
-          if($request->input('TraId')!=0){
-             //$unidad->transportista()->attach($request->input('TraId'));
-           }
        } else {
            Session::flash('message', 'Algo salio mal');
            Session::flash('class', 'danger');

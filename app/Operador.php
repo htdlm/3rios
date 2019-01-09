@@ -12,14 +12,10 @@ class Operador extends Model
 
     protected $primaryKey = 'OpeId';
 
-    public function transportista()
+    public function transportistas()
     {
-        # code...
-    }
-
-    public function unidades()
-    {
-        return $this->belongsToMany(Unidad::class,'uni_ope','OpeId','UniId');
+    //Si se usa, pendiente agregar parametros
+        return $this->belongsToMany(UnidadOperadorTransportista::class,'uni_ope_tra');
     }
 
     public function clase()

@@ -12,8 +12,9 @@ Nueva Evidencia
 
           <label for="movimiento">Movimiento</label>
           <select class="form-control" name="MovId">
-            <option value="1">AD17</option>
-  <!-- Movimiento pendiente -->
+            @foreach($movimientos as $movimiento)
+            <option value="{{$movimiento->MovId}}">{{$movimiento->RefCli}}</option>
+            @endforeach
           </select>
 
             <label for="descripcion">Descripcion</label>

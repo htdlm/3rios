@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Evidencia;
+use App\Movimiento;
 use Session;
 
 class EvidenciaController extends Controller
@@ -16,9 +17,10 @@ class EvidenciaController extends Controller
      public function index()
      {
          $evidencias = Evidencia::all();
+         $movimientos = Movimiento::all();
          /*CHECHAR la logica para que estando en un movimiento se agregue
-         un adicional y tomar automaticamente el id del movimiento*/
-         return view('Evidencia.index', compact('evidencias'));
+         una evidencia y tomar automaticamente el id del movimiento*/
+         return view('Evidencia.index', compact('evidencias','movimientos'));
      }
 
      /**
@@ -42,7 +44,16 @@ class EvidenciaController extends Controller
          $evidencia = new Evidencia();
          $evidencia->fill($request->all());
 
+          $file=$request->file('ArcEvi');
+          $nombre = $file->getClientOriginalName();
+
+          $evidencia->ArcEvi=$nombre;
+
+
          if ($evidencia->save()) {
+           //Mover Archivo
+           $file->move(public_path().'/evidencias_movimiento/movimiento '.$evidencia->MovId,$nombre);
+
              Session::flash('message', 'Evidencia agregada correctamente');
              Session::flash('class', 'success');
          } else {
@@ -57,7 +68,14 @@ class EvidenciaController extends Controller
      {
        $evidencia=Evidencia::find($id);
 
-       return dd($evidencia);
+       if($evidencia!=null){
+         $ruta= public_path()."\\evidencias_movimiento\\movimiento ".$evidencia->MovId."\\".$evidencia->ArcEvi;
+         return response()->download($ruta);
+       }else{
+         Session::flash('message', 'No hay registros');
+         Session::flash('class', 'danger');
+       }
+       return back();
 
      }
 

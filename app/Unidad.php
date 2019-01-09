@@ -17,13 +17,6 @@ class Unidad extends Model
         return $this->belongsTo(TipoUnidad::class,'TipUniId');
     }
 
-    /*Relacion muchos a muchos
-    tabla unidad_operador*/
-    public function operadores()
-    {
-        return $this->belongsToMany(Operador::class,'uni_ope','UniId','OpeId');
-    }
-
     public function clase()
     {
         return $this->belongsTo(Clase::class,'ClaId');

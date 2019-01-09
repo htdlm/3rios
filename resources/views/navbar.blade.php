@@ -5,7 +5,6 @@
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       <a class="dropdown-item" href="/Adicionales">Adicionales</a>
       <a href="/Clases" class="dropdown-item">Clases</a>
-      <a class="dropdown-item" href="/Evidencias">Evidencias</a>
       <a class="dropdown-item" href="/Finanzas">Finanzas</a>
       <a href="/Operadores" class="dropdown-item">Operadores</a>
       <a class="dropdown-item" href="/Tarifas">Tarifas</a>
@@ -35,6 +34,7 @@
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       <a href="/Movimiento/crear" class="dropdown-item">Nuevo movimiento</a>
       <a href="/FasesMovimientos" class="dropdown-item" >Fases de Movimientos</a>
+      <a class="dropdown-item" href="/Evidencias">Agregar Evidencias</a>
     </div>
 </li>
 

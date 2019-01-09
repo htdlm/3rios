@@ -109,6 +109,7 @@ Route::group(['middleware' => ['admin']],function ()
   Route::post('Evidencia/agregar','EvidenciaController@store');
   Route::post('Evidencia/actualizar/{id}', 'EvidenciaController@update');
   Route::get('Evidencia/mostrar/{id}', 'EvidenciaController@show');
+  Route::get('Evidencia/mostrar/archivo/{id}', 'EvidenciaController@file');
   Route::get('Evidencia/eliminar/{id}', 'EvidenciaController@destroy');
 
   //FasesMovimientos
@@ -126,6 +127,14 @@ Route::group(['middleware' => ['admin']],function ()
   Route::get('Movimiento/mostrar/{id}', 'MovimientoController@show');
   Route::get('Movimiento/eliminar/{id}', 'MovimientoController@destroy');
 
+  //Unidades, Operadores, Transportistas
+  Route::get('UniOpeTra','UniOpeTraController@index');
+  Route::post('UniOpeTra/agregar','UniOpeTraController@store');
+  Route::get('UniOpeTra/crear','UniOpeTraController@create');
+  Route::post('UniOpeTra/actualizar/{id}', 'UniOpeTraController@update');
+  Route::get('UniOpeTra/mostrar/{id}', 'UniOpeTraController@show');
+  Route::get('UniOpeTra/eliminar/{id}', 'UniOpeTraController@destroy');
+
 });
 
 //Todos tienen acceso a esta url
@@ -140,4 +149,9 @@ Route::post('Evento/actualizar/{id}', 'EventoController@update');
 Route::get('Evento/mostrar/{id}', 'EventoController@show');
 Route::get('Evento/eliminar/{id}', 'EventoController@destroy');
 Route::get('Localidades/mostrar/{id}', 'LocalidadController@showLocalidades');
+
+//Agregar evidencias
+Route::get('Evidencias','EvidenciaController@index');
+Route::post('Evidencia/agregar','EvidenciaController@store');
+
 });

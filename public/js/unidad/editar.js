@@ -20,5 +20,11 @@ function editar(id) {
 
         $('select[name=TraId]').find(":selected").attr("selected", false);
         $("select[name=TraId] option[value='" + data.TraId + "']").attr("selected", true);
+        $('select[name=TraId]').attr('disabled', 'true');
     });
 }
+
+$('#btnAgregar').on('click', function() {
+    console.log('click');
+    $('select[name=TraId]').removeAttr('disabled');
+});

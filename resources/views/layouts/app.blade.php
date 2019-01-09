@@ -33,8 +33,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                            @if(Auth::user()!= null)
-                              @if(Auth::user()->hasRole('Administrador'))
+                              @if(Auth::check() && Auth::user()->hasRole('Administrador'))
                                 @include('navbar')
                               @else
                               <li class="nav-item">
@@ -43,7 +42,13 @@
                                   </a>
                               </li>
                               @endif
-                            @endif
+                              @if(Auth::check() && Auth::user()->hasRole('Capturador'))
+                              <li class="nav-item">
+                                  <a class="nav-link" href="/Evidencias" role="button">
+                                    Añadir evidencia
+                                  </a>
+                              </li>
+                              @endif
                         </ul>
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
