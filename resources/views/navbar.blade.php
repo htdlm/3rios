@@ -38,10 +38,20 @@
     </div>
 </li>
 
-<!-- -->
 
-<li class="nav-item">
-    <a class="nav-link" href="/Evento/buscar" role="button">
-        Buscar Eventos
+<!--Administrador de usuarios -->
+<li class="nav-item dropdown active">
+    <a class="dropdown-item dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Usuarios
     </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a href="/Usuarios" class="dropdown-item">Administrar Usuarios</a>
+    </div>
+</li>
+
+<!-- Buscar eventos -->
+<li class="nav-item">
+  <a class="nav-link" href="/Evento/buscar" role="button">
+    Buscar Eventos
+  </a>
 </li>

@@ -129,11 +129,16 @@ Route::group(['middleware' => ['admin']],function ()
 
   //Unidades, Operadores, Transportistas
   Route::get('UniOpeTra','UniOpeTraController@index');
-  Route::post('UniOpeTra/agregar','UniOpeTraController@store');
-  Route::get('UniOpeTra/crear','UniOpeTraController@create');
   Route::post('UniOpeTra/actualizar/{id}', 'UniOpeTraController@update');
   Route::get('UniOpeTra/mostrar/{id}', 'UniOpeTraController@show');
   Route::get('UniOpeTra/eliminar/{id}', 'UniOpeTraController@destroy');
+
+  //Usuarios
+  Route::get('Usuarios','RolesUsuarioController@index');
+  Route::post('Usuario/agregar','RolesUsuarioController@store');
+  Route::post('Usuario/actualizar/{id}', 'RolesUsuarioController@update');
+  Route::get('Usuario/mostrar/{id}', 'RolesUsuarioController@show');
+  Route::get('Usuario/eliminar/{id}', 'RolesUsuarioController@destroy');
 
 });
 
