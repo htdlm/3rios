@@ -52,7 +52,7 @@ class EvidenciaController extends Controller
 
          if ($evidencia->save()) {
            //Mover Archivo
-           $file->move(public_path().'/evidencias_movimiento/movimiento '.$evidencia->MovId,$nombre);
+           $file->move(public_path().'/evidencias_movimiento/Movimiento '.$evidencia->MovId,$nombre);
 
              Session::flash('message', 'Evidencia agregada correctamente');
              Session::flash('class', 'success');
@@ -69,7 +69,7 @@ class EvidenciaController extends Controller
        $evidencia=Evidencia::find($id);
 
        if($evidencia!=null){
-         $ruta= public_path()."\\evidencias_movimiento\\movimiento ".$evidencia->MovId."\\".$evidencia->ArcEvi;
+         $ruta= public_path()."/evidencias_movimiento/movimiento ".$evidencia->MovId."/".$evidencia->ArcEvi;
          return response()->download($ruta);
        }else{
          Session::flash('message', 'No hay registros');

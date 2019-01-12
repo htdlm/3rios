@@ -8,7 +8,7 @@ class FacturaCxc extends Model
 {
     protected $table = 'fac_cxc';
 
-    protected $fillable = ['FacCxcNum', 'ConFac', 'ObsFac', 'FecCreFac', 'FecFac', 'FecPre', 'ImpFac', 'IvaFac', 'SubFac', 'RetFac', 'TotFac'];
+    protected $fillable = ['FacCxcNum', 'MovId','ConFac', 'ObsFac', 'FecCreFac', 'FecFac', 'FecPre', 'ImpFac', 'IvaFac', 'SubFac', 'RetFac', 'TotFac'];
 
     protected $primaryKey = 'FacCxcId';
 

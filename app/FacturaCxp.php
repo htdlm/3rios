@@ -8,7 +8,7 @@ class FacturaCxp extends Model
 {
     protected $table = 'fac_cxp';
 
-    protected $fillable = ['FacCxcNum', 'ConFac', 'ObsFac', 'FecCreFac', 'FecFac', 'FecPre', 'ImpFac', 'IvaFac', 'SubFac', 'RetFac', 'TotFac', 'SalFac'];
+    protected $fillable = ['FacCxpNum','MovId', 'ConFac', 'ObsFac', 'FecCreFac', 'FecFac', 'FecPre', 'ImpFac', 'IvaFac', 'SubFac', 'RetFac', 'TotFac', 'SalFac'];
 
     protected $primaryKey = 'FacCxpId';
 
@@ -16,7 +16,7 @@ class FacturaCxp extends Model
     un movimiento*/
     public function movimiento()
     {
-        # code...
+        return $this->belongsTo(Movimiento::class,'MovId');
     }
 
     /*Cada factura genera uno o

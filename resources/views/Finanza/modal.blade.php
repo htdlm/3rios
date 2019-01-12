@@ -10,13 +10,12 @@ Nueva Finanza
           <label for="tipounidad">Movimiento</label>
           <select class="form-control" name="MovId">
             <option value="1">AD17</option>
-      <!--      @foreach($movimientos as $movimiento)
+            @foreach($movimientos as $movimiento)
             <option value="{{$movimiento->MovId}}">{{$movimiento->RefCli}}</option>
-            @endforeach-PENDIENTE-->
+            @endforeach
           </select>
-
             <label for="Importe">Importe</label>
-            <input type="number" class="form-control" placeholder="Importe del movimiento" name="ImpFin" value="{{old('ImpFini')}}">
+            <input type="number" class="form-control" placeholder="Importe del movimiento" name="ImpFin" value="{{old('ImpFin')}}">
 
             <label for="iva">IVA</label>
             <input type="number" class="form-control" placeholder="IVA %" name="IvaFin" value="{{old('IvaFin')}}">

@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cliente;
-use App\Movimiento;
-use App\FaseMovimiento;
-use App\Adicional;
+use App\PagoCxp;
+use App\FacturaCxp;
 use Session;
 
-class MovimientoController extends Controller
+class PagoCxpController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +16,9 @@ class MovimientoController extends Controller
      */
     public function index()
     {
-
+        $pagos=PagoCxp::all();
+        $facturas=FacturaCxp::all();
+        return view('PagoCxp.index',compact('pagos','facturas'));
     }
 
     /**
@@ -28,10 +28,7 @@ class MovimientoController extends Controller
      */
     public function create()
     {
-      $clientes=Cliente::all();
-      $fases=FaseMovimiento::all();
-      $adicionales=Adicional::all();
-      return view('Movimiento.crear',compact('clientes','fases','adicionales'));
+        //
     }
 
     /**
@@ -42,22 +39,30 @@ class MovimientoController extends Controller
      */
     public function store(Request $request)
     {
-      $movimiento=new Movimiento();
-      $movimiento->fill($request->all());
+        $factura=FacturaCxp::where('FacCxpNum',$request->FacCxpNum)->first();
+        if($request->MonPag > $factura->SalFac){
+          Session::flash('message','El pago es mayor al saldo pendiente, verifique.');
+          Session::flash('class','warning');
+          return back();
+        }
 
-      //Id del usuario que realizo el movimiento
-      $movimiento->UseId1=Auth()->user()->UseId;
-      /*Antes de guardar validar que los kilos y el transporte
-      coincidan, sino regresar un mensaje*/
+        $pago=new PagoCxp();
+        $pago->fill($request->all());
 
-      if($movimiento->save()){
-        Session::flash('message','Movimiento agregado correctamente');
-        Session::flash('class','success');
-      }else{
-        Session::flash('message','Algo salio mal');
-        Session::flash('class','danger');
-      }
-      return back();
+        if($pago->save()){
+          Session::flash('message','Pago exitoso');
+          Session::flash('class','success');
+
+          //Actualizar el saldo de la factura
+          $factura->SalFac -= $request->MonPag;
+          $factura->save();
+        }else{
+          Session::flash('message','Algo salio mal');
+          Session::flash('class','danger');
+        }
+
+        return back();
+
     }
 
     /**
@@ -68,12 +73,7 @@ class MovimientoController extends Controller
      */
     public function show($id)
     {
-
-    }
-
-    public function getImporte($id)
-    {
-      return Movimiento::find($id)->FacTarTot;
+        return PagoCxp::find($id);
     }
 
     /**
@@ -107,6 +107,11 @@ class MovimientoController extends Controller
      */
     public function destroy($id)
     {
-        //
+      PagoCxp::destroy($id);
+
+      Session::flash('message', 'Pago eliminado correctamente');
+      Session::flash('class', 'success');
+
+      return back();
     }
 }

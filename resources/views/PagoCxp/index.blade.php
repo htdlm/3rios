@@ -10,11 +10,11 @@
 			<div class="card-header">
 				<div class="row">
 					<div class="col-lg-8">
-						<h2 class="text-center">Finanzas</h2>
+						<h2 class="text-center">Pagos (Cuentas por Pagar)</h2>
 					</div>
 					<div class="col-lg-4">
 						<button class="btn btn-primary btn-block btn-lg" data-target="#ventana" data-toggle="modal" id="btnAgregar">
-							Añadir Finanza
+							Añadir Pago
 							<img alt="" src="{{asset('imagenes/agregar.png')}}" />
 						</button>
 					</div>
@@ -26,29 +26,29 @@
 						<div class="table-responsive-lg col-lg-12">
 							<table class="table table-striped table-bordered table-sm" id="tblTabla">
 								<thead>
-									<th class="text-center">Id Finanza</th>
-									<th class="text-center">Movimiento</th>
-									<th class="text-center">Importe $</th>
-									<th class="text-center">IVA</th>
-									<th class="text-center">Retencion</th>
-									<th class="text-center">Total</th>
+									<th class="text-center">Numero de pago</th>
+									<th class="text-center">Numero de Factura</th>
+									<th class="text-center">Monto $</th>
+									<th class="text-center">Fecha de pago</th>
+									<th class="text-center">Referencia de pago</th>
+									<th class="text-center">Observaciones</th>
 									<th class="text-center">Editar</th>
 									<th class="text-center">Eliminar</th>
 								</thead>
 								<tbody>
-									@foreach($finanzas as $finanza)
+									@foreach($pagos as $pago)
 									<tr>
-										<td class="text-center">{{$finanza->FinId}}</td>
-										<td class="text-center">{{$finanza->movimiento->RefCli}}</td>
-										<td class="text-center">{{$finanza->ImpFin}}</td>
-										<td class="text-center">{{$finanza->IvaFin}}</td>
-										<td class="text-center">{{$finanza->RetFin}}</td>
-										<td class="text-center">{{$finanza->TotFin}}</td>
+										<td class="text-center">{{$pago->PagCxpId}}</td>
+										<td class="text-center">{{$pago->factura}}</td>
+										<td class="text-center">{{$pago->MonPag}}</td>
+										<td class="text-center">{{$pago->FecPag}}</td>
+										<td class="text-center">{{$pago->RefPag}}</td>
+										<td class="text-center">{{$pago->ObsPag}}</td>
 										<td class="text-center">
-											<button class="btn btn-info btn-bloc btnEditar" value="{{$finanza->FinId}}" data-target="#ventana" data-toggle="modal">Editar</button>
+											<button class="btn btn-info btn-bloc btnEditar" value="{{$pago->PagCxpId}}" data-target="#ventana" data-toggle="modal">Editar</button>
 										</td>
 										<td class="text-center">
-											<a href="{{url('Finanza/eliminar/')}}/{{$finanza->FinId}}"><button class="btn btn-danger btn-bloc" onclick="return confirm('¿Seguro de que desea eliminar este registro?')">Eliminar</button></a>
+											<a href="{{url('PagoCxp/eliminar/')}}/{{$pago->PagCxpId}}"><button class="btn btn-danger btn-bloc" onclick="return confirm('¿Seguro de que desea eliminar este registro?')">Eliminar</button></a>
 										</td>
 									</tr>
 									@endforeach
@@ -64,7 +64,7 @@
 					<button type="button" class="close" data-dismiss="alert">&times;</button>{{Session::get('message')}}</div>
 			</div>
 			@endif
-			@include('Finanza.modal')
+			@include('PagoCxp.modal')
 		</div>
 	</div>
 </div>
@@ -76,6 +76,6 @@
 </script>
 <script src="{{asset('js/tabla.js')}}">
 </script>
-<script src="{{asset('js/finanza/editar.js')}}">
+<script src="{{asset('js/pagocxp/editar.js')}}">
 </script>
 @endsection

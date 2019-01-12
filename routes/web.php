@@ -140,11 +140,43 @@ Route::group(['middleware' => ['admin']],function ()
   Route::get('Usuario/mostrar/{id}', 'RolesUsuarioController@show');
   Route::get('Usuario/eliminar/{id}', 'RolesUsuarioController@destroy');
 
+  //Facturas cuentas por pagar
+  Route::get('FacturasCxp','FacturaCxpController@index');
+  Route::post('FacturaCxp/agregar','FacturaCxpController@store');
+  Route::post('FacturaCxp/actualizar/{id}', 'FacturaCxpController@update');
+  Route::get('FacturaCxp/mostrar/{id}', 'FacturaCxpController@show');
+  Route::get('FacturaCxp/eliminar/{id}', 'FacturaCxpController@destroy');
+
+  //Traer importe del movimiento
+  Route::get('Movimiento/importe/{id}', 'MovimientoController@getImporte');
+
+  //Pagos cuentas por pagar
+  Route::get('PagosCxp','PagoCxpController@index');
+  Route::post('PagoCxp/agregar','PagoCxpController@store');
+  Route::post('PagoCxp/actualizar/{id}', 'PagoCxpController@update');
+  Route::get('PagoCxp/mostrar/{id}', 'PagoCxpController@show');
+  Route::get('PagoCxp/eliminar/{id}', 'PagoCxpController@destroy');
+
+  //Facturas cuentas por pagar
+  Route::get('FacturasCxc','FacturaCxcController@index');
+  Route::post('FacturaCxc/agregar','FacturaCxcController@store');
+  Route::post('FacturaCxc/actualizar/{id}', 'FacturaCxcController@update');
+  Route::get('FacturaCxc/mostrar/{id}', 'FacturaCxcController@show');
+  Route::get('FacturaCxc/eliminar/{id}', 'FacturaCxcController@destroy');
+
+  //Pagos cuentas por pagar
+  Route::get('PagosCxc','PagoCxcController@index');
+  Route::post('PagoCxc/agregar','PagoCxcController@store');
+  Route::post('PagoCxc/actualizar/{id}', 'PagoCxcController@update');
+  Route::get('PagoCxc/mostrar/{id}', 'PagoCxcController@show');
+  Route::get('PagoCxc/eliminar/{id}', 'PagoCxcController@destroy');
 });
 
 //Todos tienen acceso a esta url
 Route::get('Evento/buscar','EventoController@buscar');
 
+
+//Usuario CAPTURADOR
 Route::group(['middleware' => ['capturador']],function(){
 //Eventos
 Route::post('Evento/agregar','EventoController@guardar');

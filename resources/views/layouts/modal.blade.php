@@ -1,6 +1,6 @@
 <!-- Ventana Modal -->
 <div class="modal fade" id="ventana">
-	<div class="modal-dialog">
+	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<!-- HEADER -->
 			<div class="modal-header">

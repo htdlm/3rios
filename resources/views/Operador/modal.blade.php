@@ -7,7 +7,7 @@
 			<input type="text" class="form-control" placeholder="Nombre del Operador" name="NomOpe" value="{{old('NomOpe')}}" autofocus="autofocus">
 
 			<label for="Operador">Descripcion</label>
-			<input type="text" class="form-control" placeholder="Descripcion del Operador" name="DesOpe" value="{{old('NomOpe')}}">
+			<input type="text" class="form-control" placeholder="Descripcion del Operador" name="DesOpe" value="{{old('DesOpe')}}">
 
 			<label for="direccion">Direccion</label>
 			<input type="text" class="form-control" placeholder="Direccion" name="DirOpe" value="{{old('DirOpe')}}">

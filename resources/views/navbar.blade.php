@@ -38,6 +38,20 @@
     </div>
 </li>
 
+<!-- Facturas -->
+<li class="nav-item dropdown active">
+    <a class="dropdown-item dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Facturas
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a href="/FacturasCxp" class="dropdown-item">Facturas (Cuentas por pagar)</a>
+      <a href="/PagosCxp" class="dropdown-item">Pagos (Cuentas por pagar)</a>
+      <hr>
+      <a href="/FacturasCxc" class="dropdown-item">Facturas (Cuentas por cobrar)</a>
+      <a href="/PagosCxc" class="dropdown-item">Pagos (Cuentas por cobrar)</a>
+    </div>
+</li>
+
 
 <!--Administrador de usuarios -->
 <li class="nav-item dropdown active">

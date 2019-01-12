@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cliente;
+use App\FacturaCxp;
 use App\Movimiento;
-use App\FaseMovimiento;
-use App\Adicional;
 use Session;
 
-class MovimientoController extends Controller
+class FacturaCxpController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +16,9 @@ class MovimientoController extends Controller
      */
     public function index()
     {
-
+        $facturas=FacturaCxp::all();
+        $movimientos=Movimiento::all();
+        return view('FacturaCxp.index',compact('facturas','movimientos'));
     }
 
     /**
@@ -28,10 +28,7 @@ class MovimientoController extends Controller
      */
     public function create()
     {
-      $clientes=Cliente::all();
-      $fases=FaseMovimiento::all();
-      $adicionales=Adicional::all();
-      return view('Movimiento.crear',compact('clientes','fases','adicionales'));
+
     }
 
     /**
@@ -42,22 +39,17 @@ class MovimientoController extends Controller
      */
     public function store(Request $request)
     {
-      $movimiento=new Movimiento();
-      $movimiento->fill($request->all());
+        $factura=new FacturaCxp();
+        $factura->fill($request->all());
 
-      //Id del usuario que realizo el movimiento
-      $movimiento->UseId1=Auth()->user()->UseId;
-      /*Antes de guardar validar que los kilos y el transporte
-      coincidan, sino regresar un mensaje*/
-
-      if($movimiento->save()){
-        Session::flash('message','Movimiento agregado correctamente');
-        Session::flash('class','success');
-      }else{
-        Session::flash('message','Algo salio mal');
-        Session::flash('class','danger');
-      }
-      return back();
+        if($factura->save()){
+          Session::flash('message','Factura creada con exito');
+          Session::flash('class','success');
+        }else{
+          Session::flash('message','Algo salio mal');
+          Session::flash('class','danger');
+        }
+        return back();
     }
 
     /**
@@ -68,12 +60,7 @@ class MovimientoController extends Controller
      */
     public function show($id)
     {
-
-    }
-
-    public function getImporte($id)
-    {
-      return Movimiento::find($id)->FacTarTot;
+        return FacturaCxp::find($id);
     }
 
     /**
@@ -96,7 +83,17 @@ class MovimientoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $factura=FacturaCxp::find($id);
+      $factura->fill($request->all());
+
+      if($factura->save()){
+        Session::flash('message','Factura actualizada con exito');
+        Session::flash('class','success');
+      }else{
+        Session::flash('message','Algo salio mal');
+        Session::flash('class','danger');
+      }
+      return back();
     }
 
     /**
@@ -107,6 +104,11 @@ class MovimientoController extends Controller
      */
     public function destroy($id)
     {
-        //
+      FacturaCxp::destroy($id);
+
+      Session::flash('message', 'Factura eliminada correctamente');
+      Session::flash('class', 'success');
+
+      return back();
     }
 }
