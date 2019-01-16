@@ -18,7 +18,7 @@ class CreateAdiTable extends Migration
             $table->string('DesAdi');
             $table->string('UniAdi');
             $table->double('CosAdi');
-            $table->string('ObsAdi')->nullable();
+            $table->string('ObsAdi');
             $table->timestamps();
         });
     }
