@@ -96,7 +96,18 @@ class PagoCxcController extends Controller
       */
      public function update(Request $request, $id)
      {
-         //
+       $pago=PagoCxc::find($id);
+       $pago->fill($request->all());
+
+       if($pago->save()){
+         Session::flash('message','Pago exitoso');
+         Session::flash('class','success');
+       }else{
+         Session::flash('message','Algo salio mal');
+         Session::flash('class','danger');
+       }
+
+       return back();
      }
 
      /**

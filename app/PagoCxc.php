@@ -11,6 +11,7 @@ class PagoCxc extends Model
     protected $fillable = ['NumPag', 'FacCxcNum', 'MonPag', 'FecPag', 'RefPag', 'ObsPag'];
 
     protected $primaryKey = 'PagCxcId';
+
     /*Un pago pertenece a una factura*/
     public function factura()
     {

@@ -1,6 +1,9 @@
 function editar(id) {
+    //Bloquear movimiento
+    $('select[name=MovId]').attr('disabled', 'true');
+
     //Modificar el titulo del modal
-    $('.modal-title').text('Editar Factura');
+    $('.modal-title').text('Editar Factura (Cxc)');
     //Modificar el titulo y color del boton del modal
     $('#btnCrear').val('Editar').removeClass('btn-success').addClass('btn-info');
     //Modificar action del form

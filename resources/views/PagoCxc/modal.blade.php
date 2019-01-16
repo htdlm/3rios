@@ -3,7 +3,7 @@
 Nueva Finanza
 @endsection
 @section('body')
-<form action="PagoCxp/agregar" method="post" id="frmAgregar">
+<form action="PagoCxc/agregar" method="post" id="frmAgregar">
     {{csrf_field()}}
     <div class="row">
         <div class="col-lg-12">
@@ -11,10 +11,10 @@ Nueva Finanza
           <input type="number" class="form-control" name="NumPag" value="{{old('NumPag')}}" placeholder="Numero de pago">
 
           <label for="factura">Numero de factura</label>
-          <select class="form-control" name="FacCxpNum">
+          <select class="form-control" name="FacCxcNum">
             <option value="0">Seleccione una opcion</option>
             @foreach($facturas as $factura)
-            <option value="{{$factura->FacCxpNum}}">{{$factura->FacCxpNum}} Saldo Pendiente (${{$factura->SalFac}})</option>
+            <option value="{{$factura->FacCxcNum}}">{{$factura->FacCxcNum}} Saldo Pendiente (${{$factura->SalFac}})</option>
             @endforeach
           </select>
 

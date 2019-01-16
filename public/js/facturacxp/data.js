@@ -1,3 +1,9 @@
+/*Reactivar el select de Movimiento
+bloqueado en el editar*/
+$('#btnAgregar').on('click', function() {
+    $('select[name=MovId]').removeAttr('disabled');
+});
+
 //Traer el FacTarTot del movimiento
 function getImporte(id) {
     if (id != 0) {
@@ -45,4 +51,9 @@ $('input[name=RetFac]').on('change', function() {
     var total = getRetencion(subtotal, ret);
     $('input[name=TotFac]').val(total);
     $('input[name=SalFac]').val(total);
+});
+
+/*Boton para generar el XML*/
+$('#btnExcel').on('click', function() {
+    window.open("/FacturaCxp/excel");
 });

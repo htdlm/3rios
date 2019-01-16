@@ -1,17 +1,30 @@
 function editar(id) {
     //Modificar el titulo del modal
-    $('.modal-title').text('Editar Pago');
+    $('.modal-title').text('Editar Pago (Cxc)');
     //Modificar el titulo y color del boton del modal
     $('#btnCrear').val('Editar').removeClass('btn-success').addClass('btn-info');
     //Modificar action del form
-    $('#frmAgregar').attr('action', 'Finanza/actualizar/' + id);
-    $.get('Finanza/mostrar/' + id, function(data) {
-        $('select[name=MovId]').find(":selected").attr("selected", false);
-        $("select[name=MovId] option[value='" + data.MovId + "']").attr("selected", true);
+    $('#frmAgregar').attr('action', 'PagoCxc/actualizar/' + id);
+    $.get('PagoCxc/mostrar/' + id, function(data) {
+        $('input[name=NumPag]').val(data.NumPag);
 
-        $('input[name=ImpFin]').val(data.ImpFin);
-        $('input[name=IvaFin]').val(data.IvaFin);
-        $('input[name=RetFin]').val(data.RetFin);
-        $('input[name=TotFin]').val(data.TotFin);
+        $('select[name=FacCxcNum]').find(":selected").attr("selected", false);
+        $("select[name=FacCxcNum] option[value='" + data.FacCxcNum + "']").attr("selected", true);
+
+        $('input[name=MonPag]').val(data.MonPag);
+        $('input[name=FecPag]').val(data.FecPag);
+        $('input[name=RefPag]').val(data.RefPag);
+        $('textarea[name=ObsPag]').val(data.ObsPag);
     });
+
+    /*Bloquear campos*/
+    $('select[name=FacCxcNum]').attr('disabled', 'true');
+    $('input[name=MonPag]').attr('disabled', 'true');
 }
+
+/*Desbloquear campos para agregar registro*/
+$('#btnAgregar').on('click', function() {
+    $('select[name=FacCxcNum]').find(":selected").attr("selected", false);
+    $('select[name=FacCxcNum]').removeAttr('disabled');
+    $('input[name=MonPag]').removeAttr('disabled');
+});

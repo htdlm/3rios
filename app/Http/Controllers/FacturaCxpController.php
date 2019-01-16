@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\FacturaCxp;
 use App\Movimiento;
+use App\Exports\FacturaCxpExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Session;
 
 class FacturaCxpController extends Controller
@@ -29,6 +31,12 @@ class FacturaCxpController extends Controller
     public function create()
     {
 
+    }
+
+
+    public function excel(Request $request)
+    {
+      return Excel::download(new FacturaCxpExport, 'FacturasCxp.xlsx');
     }
 
     /**

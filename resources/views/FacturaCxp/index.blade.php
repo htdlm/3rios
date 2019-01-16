@@ -9,10 +9,15 @@
 		<div class="card">
 			<div class="card-header">
 				<div class="row">
-					<div class="col-lg-8">
+					<div class="col-lg-3">
+						<button class="btn btn-success btn-lg" id="btnExcel">
+							XML
+						</button>
+					</div>
+					<div class="col-lg-6">
 						<h2 class="text-center">Facturas (Cuentas por pagar)</h2>
 					</div>
-					<div class="col-lg-4">
+					<div class="col-lg-3">
 						<button class="btn btn-primary btn-block btn-lg" data-target="#ventana" data-toggle="modal" id="btnAgregar">
 							Nueva Factura
 							<img alt="" src="{{asset('imagenes/agregar.png')}}" />
@@ -27,7 +32,7 @@
 						<div class="table-responsive-lg col-lg-12">
 							<table class="table table-striped table-bordered table-sm" id="tblTabla">
 								<thead>
-									<th class="text-center">Numero</th>
+									<th class="text-center">Numero Factura</th>
 									<th class="text-center">Movimiento</th>
 									<th class="text-center">Fecha de creacion</th>
 									<th class="text-center">Fecha de la factura</th>
@@ -35,25 +40,21 @@
 									<th class="text-center">Saldo</th>
 									<th class="text-center">Editar</th>
 									<th class="text-center">Eliminar</th>
-									<th class="text-center">Mas info...</th>
 								</thead>
 								<tbody>
 									@foreach($facturas as $factura)
 									<tr>
-										<td class="text-center">{{$factura->FacCxcNum}}</td>
+										<td class="text-center">{{$factura->FacCxpNum}}</td>
 										<td class="text-center">{{$factura->movimiento->RefCli}}</td>
 										<td class="text-center">{{$factura->FecCreFac}}</td>
 										<td class="text-center">{{$factura->FecFac}}</td>
 										<td class="text-center">{{$factura->TotFac}}</td>
 										<td class="text-center">{{$factura->SalFac}}</td>
 										<td class="text-center">
-											<button class="btn btn-info btnEditar" value="{{$factura->FacCxcId}}" data-target="#ventana" data-toggle="modal" >Editar</button>
+											<button class="btn btn-info btnEditar" value="{{$factura->FacCxpId}}" data-target="#ventana" data-toggle="modal" >Editar</button>
 										</td>
 										<td class="text-center">
-											<a href="{{url('FacturaCxc/eliminar/')}}/{{$factura->FacCxcId}}"><button class="btn btn-danger" onclick="return confirm('¿Seguro de que desea eliminar este registro?')">Eliminar</button></a>
-										</td>
-										<td>
-											<a href=""><button class="btn btn-warning">Mas..</button></a>
+											<a href="{{url('FacturaCxp/eliminar/')}}/{{$factura->FacCxpId}}"><button class="btn btn-danger" onclick="return confirm('¿Seguro de que desea eliminar este registro?')">Eliminar</button></a>
 										</td>
 									</tr>
 									@endforeach
@@ -73,15 +74,15 @@
 	</div>
 </div>
 @endsection
-@include('FacturaCxc.modal')
+@include('FacturaCxp.modal')
 @section('scripts')
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
 </script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js">
 </script>
 <script src="{{asset('js/tabla.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/facturacxc/data.js')}}">
+<script type="text/javascript" src="{{asset('js/facturacxp/data.js')}}">
 </script>
-<script src="{{asset('js/facturacxc/editar.js')}}">
+<script src="{{asset('js/facturacxp/editar.js')}}">
 </script>
 @endsection

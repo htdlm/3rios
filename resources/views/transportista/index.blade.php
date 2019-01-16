@@ -68,7 +68,7 @@
 				<button type="button" class="close" data-dismiss="alert">&times;</button>{{Session::get('message')}}</div>
 			</div>
 			@endif
-			@include('Transportista.modal')
+			@include('transportista.modal')
 		</div>
 	</div>
 </div>

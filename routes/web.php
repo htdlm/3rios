@@ -159,6 +159,7 @@ Route::group(['middleware' => ['admin']],function ()
 
   //Facturas cuentas por pagar
   Route::get('FacturasCxc','FacturaCxcController@index');
+  Route::get('FacturaCxc/excel','FacturaCxcController@excel');
   Route::post('FacturaCxc/agregar','FacturaCxcController@store');
   Route::post('FacturaCxc/actualizar/{id}', 'FacturaCxcController@update');
   Route::get('FacturaCxc/mostrar/{id}', 'FacturaCxcController@show');
@@ -166,6 +167,7 @@ Route::group(['middleware' => ['admin']],function ()
 
   //Pagos cuentas por pagar
   Route::get('PagosCxc','PagoCxcController@index');
+  Route::get('FacturaCxp/excel','FacturaCxpController@excel');
   Route::post('PagoCxc/agregar','PagoCxcController@store');
   Route::post('PagoCxc/actualizar/{id}', 'PagoCxcController@update');
   Route::get('PagoCxc/mostrar/{id}', 'PagoCxcController@show');
