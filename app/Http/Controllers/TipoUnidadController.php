@@ -17,7 +17,7 @@ class TipoUnidadController extends Controller
     public function index()
     {
           $tipounidades=TipoUnidad::all();
-          return view('tipounidad.index',compact('tipounidades'));
+          return view('TipoUnidad.index',compact('tipounidades'));
     }
 
     /**

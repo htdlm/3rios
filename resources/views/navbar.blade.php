@@ -12,6 +12,7 @@
         <a href="/TipoUnidades" class="dropdown-item">Tipos de Unidad</a>
         <a href="/Transportistas" class="dropdown-item">Transportista</a>
         <a href="/Unidades" class="dropdown-item">Unidades</a>
+        <a href="/UniOpeTra" class="dropdown-item">Unidades/Operadores</a>
     </div>
 </li>
 

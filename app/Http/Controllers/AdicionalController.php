@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\AdiStoreRequest;
+use App\Http\Requests\AdiUpdateRequest;
+
 use App\Adicional;
 use Session;
 
@@ -35,7 +38,7 @@ class AdicionalController extends Controller
       * @param  \Illuminate\Http\Request  $request
       * @return \Illuminate\Http\Response
       */
-     public function store(Request $request)
+     public function store(AdiStoreRequest $request)
      {
          $adicional = new Adicional();
          $adicional->fill($request->all());
@@ -79,7 +82,7 @@ class AdicionalController extends Controller
       * @param  int  $id
       * @return \Illuminate\Http\Response
       */
-     public function update(Request $request, $id)
+     public function update(AdiUpdateRequest $request, $id)
      {
          $adicional = Adicional::find($id);
          $adicional->fill($request->all());

@@ -39,6 +39,12 @@ class PagoCxpController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->FacCxpNum==0){
+          Session::flash('message','No seleccionaste ninguna factura');
+          Session::flash('class','danger');
+          return back();
+        }
+
         $factura=FacturaCxp::where('FacCxpNum',$request->FacCxpNum)->first();
         if($request->MonPag > $factura->SalFac){
           Session::flash('message','El pago es mayor al saldo pendiente, verifique.');

@@ -41,28 +41,28 @@
         <div class="col-lg-3">
             <h3 class="text-center">Datos cliente</h3>
 
-            <label for="Cliente">Cliente</label>
-            <select class="form-control" name="Cliente">
+            <label for="Cliente">Cliente <span style="color:#FF0000;font-size: 15pt">*</span></label>
+            <select class="form-control" required name="Cliente">
                 @foreach($clientes as $cliente)
                 <option value="{{$cliente->CliId}}">{{$cliente->NomCli}}
                     @endforeach
                 </select>
 
-                <label for="localidadCliente">Localidad del Cliente</label>
-                <select class="form-control" name="CliLocId">
+                <label for="localidadCliente">Localidad del Cliente <span style="color:#FF0000;font-size: 15pt">*</span></label>
+                <select class="form-control" required name="CliLocId">
                     <!-- Llenar automaticamente dependiendo del cliente de arriba -->
                 </select>
 
-                <label for="minigrip">Referencia MiniGrip</label>
-                <input class="form-control" type="text" name="RefCli" value="{{old('RefCli')}}" placeholder="Numero de Referencia Minigrip">
+                <label for="minigrip">Referencia MiniGrip <span style="color:#FF0000;font-size: 15pt">*</span></label>
+                <input class="form-control" type="text" required name="RefCli" value="{{old('RefCli')}}" placeholder="Numero de Referencia Minigrip">
 
-                <label for="TipoUnidad">Tipos de unidad</label>
-                <select class="form-control" name="TipUni" id="tipoUnidad">
+                <label for="TipoUnidad">Tipos de unidad <span style="color:#FF0000;font-size: 15pt">*</span></label>
+                <select class="form-control" required name="TipUni" id="tipoUnidad">
                   <!-- Llenar automatico -->
                 </select>
 
-                <label for="Unidades">Unidades</label>
-                <select name="UniId" id="unidad" class="form-control">
+                <label for="Unidades">Unidades <span style="color:#FF0000;font-size: 15pt">*</span></label>
+                <select name="UniId" id="unidad" required class="form-control">
                   <!-- Llenar automatico -->
                 </select>
             </div>
@@ -98,17 +98,17 @@
         <hr>
         <div class="row">
             <div class="col-lg-6">
-                <label for="fase">Fase del movimiento</label>
-                <select class="form-control" name="FasMovId">
+                <label for="fase">Fase del movimiento <span style="color:#FF0000;font-size: 15pt">*</span></label>
+                <select class="form-control" required name="FasMovId">
                     @foreach($fases as $fase)
                     <option value="{{$fase->FasMovId}}">{{$fase->FasMov}}</option>
                     @endforeach
                 </select>
-                <label for="tarimas">Numero de Tarimas</label>
-                <input class="form-control" type="number" name="NumTar" value="{{old('NumTar')}}" placeholder="Cantidad de Tarimas">
+                <label for="tarimas">Numero de Tarimas <span style="color:#FF0000;font-size: 15pt">*</span></label>
+                <input class="form-control" type="number" required name="NumTar" value="{{old('NumTar')}}" placeholder="Cantidad de Tarimas">
 
-                <label for="kilosbrutos">Kilos Brutos</label>
-                <input class="form-control" type="number" step="any" name="KilBru" required value="{{old('KilBru')}}" placeholder="Cantidad de kilos brutos">
+                <label for="kilosbrutos">Kilos Brutos <span style="color:#FF0000;font-size: 15pt">*</span></label>
+                <input class="form-control" required type="number" step="any" name="KilBru" required value="{{old('KilBru')}}" placeholder="Cantidad de kilos brutos">
 
             </div>
             <div class="col-lg-6">

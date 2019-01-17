@@ -16,7 +16,7 @@ class TransportistaController extends Controller
      public function index()
      {
          $transportistas = Transportista::all();
-         return view('transportista.index', compact('transportistas'));
+         return view('Transportista.index', compact('transportistas'));
      }
 
      /**

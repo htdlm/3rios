@@ -10,8 +10,8 @@
                 @endforeach
             </select>
 
-            <label for="rol">Rol</label>
-            <select class="form-control" name="RolId">
+            <label for="rol">Rol <span style="color:#FF0000;font-size: 15pt">*</span></label>
+            <select class="form-control" required name="RolId">
                 @foreach($roles as $rol)
                 <option value="{{$rol->RolId}}">{{$rol->Rol}}</option>
                 @endforeach

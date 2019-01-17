@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ClaStoreRequest;
 use App\Clase;
 use Session;
 
@@ -16,7 +17,7 @@ class ClaseController extends Controller
      public function index()
      {
            $clases=Clase::all();
-           return view('clase.index',compact('clases'));
+           return view('Clase.index',compact('clases'));
      }
 
      /**
@@ -35,7 +36,7 @@ class ClaseController extends Controller
       * @param  \Illuminate\Http\Request  $request
       * @return \Illuminate\Http\Response
       */
-     public function store(Request $request)
+     public function store(ClaStoreRequest $request)
      {
        $clase = new Clase();
        $clase->fill($request->all());
@@ -78,7 +79,7 @@ class ClaseController extends Controller
       * @param  int  $id
       * @return \Illuminate\Http\Response
       */
-     public function update(Request $request, $id)
+     public function update(ClaStoreRequest $request, $id)
      {
        $clase = Clase::find($id);
        $clase->fill($request->all());

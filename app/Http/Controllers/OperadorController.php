@@ -46,9 +46,6 @@ class OperadorController extends Controller
          if ($operador->save()) {
              Session::flash('message', 'Operador agregado correctamente');
              Session::flash('class', 'success');
-             if($request->input('UniId')!=0){
-               $operador->unidades()->attach($request->input('UniId'));
-             }
          } else {
              Session::flash('message', 'Algo salio mal');
              Session::flash('class', 'danger');
@@ -92,10 +89,7 @@ class OperadorController extends Controller
          $operador->fill($request->all());
          if ($operador->save()) {
              Session::flash('message', 'Operador actualizado correctamente');
-             Session::flash('class', 'success');
-             if($request->input('UniId')!=0){
-               $operador->unidades()->attach($request->input('UniId'));
-             }
+             Session::flash('class', 'success');          
          } else {
              Session::flash('message', 'Algo salio mal');
              Session::flash('class', 'danger');

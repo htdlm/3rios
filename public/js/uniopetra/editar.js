@@ -21,3 +21,8 @@ function editar(id) {
         $('textarea[name=ObsUniOpeTra]').val(data.ObsUniOpeTra);
     });
 }
+
+/*Bloquear unidad y transportista para editar*/
+$('.btnEditar').on('click', function() {
+    $('select[name=UniId]').attr('disabled', 'true');
+});

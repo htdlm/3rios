@@ -21,7 +21,7 @@ class TarifaController extends Controller
             $clientes=Cliente::all();
             $tiposervicios=TipoServicio::all();
             $tipounidades=TipoUnidad::all();
-            return view('tarifa.index',compact('tarifas','clientes','tiposervicios','tipounidades'));
+            return view('Tarifa.index',compact('tarifas','clientes','tiposervicios','tipounidades'));
       }
 
       /**

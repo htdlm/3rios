@@ -16,7 +16,7 @@ class TipSerController extends Controller
     public function index()
     {
         $tiposervicio = TipoServicio::all();
-        return view('Tiposervicio.index', compact('tiposervicio'));
+        return view('TipoServicio.index', compact('tiposervicio'));
     }
 
     /**

@@ -26,7 +26,7 @@ class UnidadController extends Controller
 
            $transportistas=Transportista::all();
 
-           return view('unidad.index',compact('unidades','tipounidades','clases','transportistas'));
+           return view('Unidad.index',compact('unidades','tipounidades','clases','transportistas'));
      }
 
      /**
@@ -49,6 +49,7 @@ class UnidadController extends Controller
      {
        $unidad = new Unidad();
        $unidad->fill($request->all());
+
        if ($unidad->save()) {
            Session::flash('message', 'Unidad agregada correctamente');
            Session::flash('class', 'success');

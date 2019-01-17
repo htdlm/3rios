@@ -13,3 +13,13 @@ function editar(id) {
         $("select[name=RolId] option[value='" + data.RolId + "']").attr("selected", true);
     });
 }
+
+/*Bloquear unidad y transportista para editar*/
+$('.btnEditar').on('click', function() {
+    $('select[name=UseId]').attr('disabled', 'true');
+});
+
+/*Desbloquear unidad y transportista para editar*/
+$('#btnAgregar').on('click', function() {
+    $('select[name=UseId]').removeAttr('disabled');
+});

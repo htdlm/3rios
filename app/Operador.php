@@ -14,7 +14,7 @@ class Operador extends Model
 
     public function transportistas()
     {
-    //Si se usa, pendiente agregar parametros
+        //Si se usa, pendiente agregar parametros
         return $this->belongsToMany(UnidadOperadorTransportista::class,'uni_ope_tra');
     }
 

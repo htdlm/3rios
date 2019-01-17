@@ -10,8 +10,8 @@ Nueva Evidencia
           <label for="Numero de evidencia">Numero de evidencia</label>
           <input type="number" class="form-control" placeholder="Numero de evidencia" name="NumEvi" value="{{old('NumEvi')}}">
 
-          <label for="movimiento">Movimiento</label>
-          <select class="form-control" name="MovId">
+          <label for="movimiento">Movimiento <span style="color:#FF0000;font-size: 15pt">*</span></label>
+          <select class="form-control" required name="MovId">
             @foreach($movimientos as $movimiento)
             <option value="{{$movimiento->MovId}}">{{$movimiento->RefCli}}</option>
             @endforeach
@@ -29,8 +29,8 @@ Nueva Evidencia
             <label for="observacion">Observacion</label>
             <textarea class="form-control" placeholder="Observaciones" name="ObsEvi" value="{{old('ObsEvi')}}"></textarea>
 
-            <label for="Archivo">Archivo</label>
-            <input type="file" class="form-control" placeholder="Archivo" name="ArcEvi" value="{{old('ArcEvi')}}">
+            <label for="Archivo">Archivo <span style="color:#FF0000;font-size: 15pt">*</span></label>
+            <input type="file" class="form-control" required placeholder="Archivo" name="ArcEvi" value="{{old('ArcEvi')}}">
 
         </div>
     </div>

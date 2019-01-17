@@ -78,10 +78,19 @@ class UniOpeTraController extends Controller
      */
     public function update(Request $request, $id)
     {
+        /*Buscar registro tabla pivote*/
         $registro=UnidadOperadorTransportista::find($id);
         $registro->fill($request->all());
 
+        /*Si se va a actualizar buscar la unidad para
+        actualizar el transportista*/
+        $unidad=Unidad::find($registro->UniId);
+        $unidad->TraId=$request->TraId;
+
         if ($registro->save()) {
+          /*Actualizar la relacion de la unidad*/
+            $unidad->save();
+
             Session::flash('message', 'Registro agregado correctamente');
             Session::flash('class', 'success');
         } else {

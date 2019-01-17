@@ -3,11 +3,11 @@
 	{{csrf_field()}}
 	<div class="row">
 		<div class="col-lg-6">
-			<label for="Numero">Numero de factura</label>
-			<input type="text" class="form-control" placeholder="Numero de la factura" name="FacCxcNum" value="{{old('FacCxcNum')}}" autofocus="autofocus">
+			<label for="Numero">Numero de factura <span style="color:#FF0000;font-size: 15pt">*</span></label>
+			<input type="text" class="form-control" required placeholder="Numero de la factura" name="FacCxcNum" value="{{old('FacCxcNum')}}" autofocus="autofocus">
 
-			<label for="movimientos">Movimiento</label>
-			<select class="form-control" name="MovId">
+			<label for="movimientos">Movimiento <span style="color:#FF0000;font-size: 15pt">*</span></label>
+			<select class="form-control" required name="MovId">
 				<option value="0">Selecciona una opcion</option>
 				@foreach($movimientos as $movimiento)
 				<option value="{{$movimiento->MovId}}">{{$movimiento->RefCli}}</option>
@@ -30,15 +30,21 @@
 			<label for="importe">Importe</label>
 			<input type="number" step="any" readonly="readonly" class="form-control" placeholder="$ Importe" name="ImpFac" value="{{old('ImpFac')}}">
 
-			<label for="iva">IVA</label>
-			<input type="number" step="any" class="form-control" placeholder="% IVA" name="IvaFac" value="{{old('IvaFac')}}">
+			<label for="iva">IVA <span style="color:#FF0000;font-size: 15pt">*</span></label>
+			<input type="number" required step="any" class="form-control" placeholder="% IVA" name="IvaFac" value="{{old('IvaFac')}}">
+			<small id="passwordHelpBlock" class="form-text text-muted">
+				Introduzca 0 en caso de no aplicar
+			</small>
 
 			<label for="subtotal">Subtotal</label>
 			<input type="number" step="any" readonly="readonly" class="form-control" placeholder="$ Subtotal" name="SubFac" value="{{old('SubFac')}}">
 
-			<label for="retencion">Retencion</label>
-			<input type="number" step="any" class="form-control" placeholder="% Retencion" name="RetFac" value="{{old('RetFac')}}">
-
+			<label for="retencion">Retencion <span style="color:#FF0000;font-size: 15pt">*</span></label>
+			<input type="number" step="any" required class="form-control" placeholder="% Retencion" name="RetFac" value="{{old('RetFac')}}">
+			<small id="passwordHelpBlock" class="form-text text-muted">
+				Introduzca 0 en caso de no aplicar
+			</small>
+			
 			<label for="total">Total</label>
 			<input type="number" step="any" readonly="readonly" class="form-control" placeholder="$ Total" name="TotFac" value="{{old('TotFac')}}">
 

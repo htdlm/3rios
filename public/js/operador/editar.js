@@ -19,9 +19,5 @@ function editar(id) {
 
         $('select[name=ClaId]').find(":selected").attr("selected", false);
         $("select[name=ClaId] option[value='" + data.ClaId + "']").attr("selected", true);
-
-
-
-
     });
 }
