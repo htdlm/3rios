@@ -61,7 +61,7 @@
 				<div class="alert alert-{{Session::get('class')}} alert-dismissable">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>{{Session::get('message')}}</div>
 			</div>
-			@endif @include('tarifa.modal')
+			@endif @include('Tarifa.modal')
 		</div>
 	</div>
 </div>

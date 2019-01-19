@@ -25,10 +25,10 @@
 							<table class="table table-striped table-bordered table-sm" id="tblTabla">
 								<thead>
 									<th class="text-center">Numero de Evidencia</th>
-									<th class="text-center">Movimiento</th>
+									<th class="text-center">Ref Minigrip</th>
 									<th class="text-center">Descripcion</th>
-									<th class="text-center">Fecha de presentacion</th>
-									<th class="text-center">Fecha de retorno</th>
+									<th class="text-center">Fecha Presentacion</th>
+									<th class="text-center">Fecha Retorno</th>
 									<th class="text-center">Nombre archivo</th>
 									@if(Auth::check() && Auth::user()->hasRole('Administrador'))
 									<th class="text-center">Descargar</th>
@@ -50,10 +50,10 @@
 											<a href="{{url('/Evidencia/mostrar/archivo/')}}/{{$evidencia->EviId}}"><img src="{{asset('imagenes/picture.png')}}" alt="{{$evidencia->ArcEvi}}"></a>
 										</td>
 										<td class="text-center">
-											<button class="btn btn-info btn-bloc btnEditar" value="{{$evidencia->EviId}}" data-target="#ventana" data-toggle="modal">Editar</button>
+											<button class="btn btn-info btnEditar" value="{{$evidencia->EviId}}" data-target="#ventana" data-toggle="modal">Editar</button>
 											<td class="text-center">
 												<a href="{{url('Evidencia/eliminar/')}}/{{$evidencia->EviId}}">
-													<button class="btn btn-danger btn-bloc" onclick="return confirm('¿Seguro de que desea eliminar este registro?')">Eliminar</button>
+													<button class="btn btn-danger" onclick="return confirm('¿Seguro de que desea eliminar este registro?')">Eliminar</button>
 												</a>
 											</td>
 											@endif

@@ -72,12 +72,12 @@
                                     <span class="caret"></span>
                                 </a>
                                 <div aria-labelledby="navbarDropdown" class="dropdown-menu dropdown-menu-right">
+                                  @if(Auth::check() && Auth::user()->hasRole('Administrador'))
+                                  <a href="/Usuarios" class="dropdown-item">Administrar Usuarios</a>
+                                  @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
-                                        @if(Auth::check() && Auth::user()->hasRole('Administrador'))
-                                        <a href="/Usuarios" class="dropdown-item">Administrar Usuarios</a>
-                                        @endif
                                     </a>
                                     <form action="{{ route('logout') }}" id="logout-form" method="POST" style="display: none;">
                                         @csrf

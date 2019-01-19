@@ -44,12 +44,14 @@
 										<td class="text-center">{{$localidad->TelLoc}}</td>
 										<td class="text-center">{{$localidad->ObsLoc}}</td>
 										<td class="text-center">
-											<button class="btn btn-info btn-bloc btnEditar" value="{{$localidad->LocId}}" data-target="#ventana" data-toggle="modal">Editar</button>
+											<button class="btn btn-info btnEditar" value="{{$localidad->LocId}}" data-target="#ventana" data-toggle="modal">Editar</button>
 										</td>
 										<td class="text-center">
-											<a href="{{url('Localidad/eliminar/')}}/{{$localidad->LocId}}"><button class="btn btn-danger btn-bloc" onclick="return confirm('¿Seguro de que desea eliminar este registro?')">Eliminar</button></a>
+											<a href="{{url('Localidad/eliminar/')}}/{{$localidad->LocId}}"><button class="btn btn-danger" onclick="return confirm('¿Seguro de que desea eliminar este registro?')">Eliminar</button></a>
 										</td>
-										<td> <a href=""><button class="btn btn-warning">Mas..</button></a></td>
+										<td>
+										<button class="btn btn-warning btnMas" value="{{$localidad->LocId}}" data-target="#ventana" data-toggle="modal">Mas..</button>
+									</td>
 									</tr>
 									@endforeach
 								</tbody>

@@ -44,13 +44,13 @@
 										<td class="text-center">{{$operador->TelOpe}}</td>
 										<td class="text-center">{{$operador->NssOpe}}</td>
 										<td class="text-center">
-											<button class="btn btn-info btnEditar" value="{{$operador->OpeId}}" data-target="#ventana" data-toggle="modal" >Editar</button>
+											<button class="btn btn-info btnEditar" value="{{$operador->OpeId}}" data-target="#ventana" data-toggle="modal">Editar</button>
 										</td>
 										<td class="text-center">
 											<a href="{{url('Operador/eliminar/')}}/{{$operador->OpeId}}"><button class="btn btn-danger" onclick="return confirm('¿Seguro de que desea eliminar este registro?')">Eliminar</button></a>
 										</td>
 										<td>
-											<a href=""><button class="btn btn-warning">Mas..</button></a>
+											<button class="btn btn-warning btnMas" value="{{$operador->OpeId}}" data-target="#ventana" data-toggle="modal">Mas..</button>
 										</td>
 									</tr>
 									@endforeach

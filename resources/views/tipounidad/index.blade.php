@@ -47,7 +47,7 @@
 										</td>
 										<td class="text-center">
 											<a href="{{url('TipoUnidad/eliminar/')}}/{{$tipounidad->TipUniId}}"><button class="btn btn-danger btn-bloc" onclick="return confirm('¿Seguro de que desea eliminar este registro?')">Eliminar</button></a>
-										</td>										
+										</td>
 									</tr>
 									@endforeach
 								</tbody>
@@ -62,7 +62,7 @@
 					<button type="button" class="close" data-dismiss="alert">&times;</button>{{Session::get('message')}}</div>
 			</div>
 			@endif
-			@include('tipounidad.modal')
+			@include('TipoUnidad.modal')
 		</div>
 	</div>
 </div>
