@@ -97,7 +97,7 @@ $('#tipoUnidad').on('change', function() {
 
 /*Dependiento del tipo de unidad al que tiene derecho
 cada cliente */
-function getUnidades(idTipo) {
+function getUnidades(idTipo, idUnidad, editando) {
     //Limpiar unidades y llenar
     $('#unidad').empty();
     $.get('/Unidad/mostrar/tipo/' + idTipo, function(data) {
@@ -105,6 +105,12 @@ function getUnidades(idTipo) {
         for (var i = 0; i < data.length; i++) {
             texto = '<option value="' + data[i].UniId + '">' + data[i].DesUni + '(' + data[i].PlaUni + ')</option>'
             $('#unidad').append(texto);
+        }
+        /*Desde archivo editar.js para llenar automaticamente la unidad
+        Aqui especificamente no se usa*/
+        if (editando == 'editando') {
+            $('select[name=UniId]').find(":selected").attr("selected", false);
+            $("select[name=UniId] option[value='" + idUnidad + "']").attr("selected", true);
         }
     });
 }

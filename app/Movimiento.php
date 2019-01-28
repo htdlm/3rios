@@ -14,9 +14,19 @@ class Movimiento extends Model
     protected $primaryKey = 'MovId';
     /* Hay 3 adicionales, checar si puedo
     hacer la consulta de los 3 en este mismo metodo */
-    public function adicionales()
+    public function adicional1()
     {
-        # code...
+        return $this->hasOne(Adicional::class,'AdiId1');
+    }
+
+    public function adicional2()
+    {
+        return $this->hasOne(Adicional::class,'AdiId2');
+    }
+
+    public function adicional3()
+    {
+        return $this->hasOne(Adicional::class,'AdiId3');
     }
 
     /* Todas las evidencias del movimiento
@@ -58,7 +68,7 @@ class Movimiento extends Model
     /* Carga, descarga, etc.. */
     public function fase_movimiento()
     {
-        # code...
+      return $this->belongsTo(FaseMovimiento::class,'FasMovId');
     }
 
     /* Cada movimiento tiene como destino
@@ -81,6 +91,6 @@ class Movimiento extends Model
     /* Cada movimiento lo genera un usuario */
     public function user()
     {
-        # code...
+      return $this->hasOne(User::class,'UseId');
     }
 }

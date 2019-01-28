@@ -52,7 +52,7 @@
 											<a href="{{url('Transportista/eliminar/')}}/{{$transportista->TraId}}"><button class="btn btn-danger" onclick="return confirm('¿Seguro de que desea eliminar este registro?')">Eliminar</button></a>
 										</td>
 										<td>
-											<a href=""><button class="btn btn-warning">Mas..</button></a>
+											<button class="btn btn-warning btnMas" value="{{$transportista->TraId}}" data-target="#ventana" data-toggle="modal">Mas..</button>
 										</td>
 									</tr>
 									@endforeach

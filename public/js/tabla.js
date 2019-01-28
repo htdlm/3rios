@@ -10,9 +10,6 @@ $(document).ready(function() {
     y coloca la informacion el los campos, modifica el modal y la ruta para
     actualizar el formulario*/
     $('.btnEditar').on('click', function() {
-        /*Si antes se presiono el boton de mas.., reactivamos los campos para poderlos editar*/
-        reactivar();
-
         var id = $(this).val();
         editar(id);
     });
@@ -52,7 +49,7 @@ function agregar(action, tituloModal) {
     $('#frmAgregar')[0].reset();
 
     /*Si antes se presiono el boton de mas.., reactivamos los campos para poderlos editar*/
-    reactivar();
+    //reactivar();
 }
 
 /*Reactivar boton e inputs*/

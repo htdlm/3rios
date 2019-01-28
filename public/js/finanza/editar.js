@@ -15,3 +15,11 @@ function editar(id) {
         $('input[name=TotFin]').val(data.TotFin);
     });
 }
+
+$('select[name=MovId]').on('change', function() {
+    var id = $(this).val();
+    $.get('/Movimiento/importe/' + id, function(data) {
+        $('input[name=ImpFin]').val(data);
+        /*HACER CALCULOS */
+    });
+});

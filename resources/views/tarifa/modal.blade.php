@@ -3,10 +3,10 @@
     {{csrf_field()}}
     <div class="row">
         <div class="col-lg-12">
-            <label for="cliente">Cliente <span style="color:#FF0000;font-size: 15pt">*</span></label>
-            <select class="form-control" required name="CliId">
-                @foreach($clientes as $cliente)
-                <option value="{{$cliente->CliId}}">{{$cliente->NomCli}}</option>
+            <label for="Localidad">Localidad <span style="color:#FF0000;font-size: 15pt">*</span></label>
+            <select class="form-control" required name="LocId">
+                @foreach($localidades as $localidad)
+                <option value="{{$localidad->LocId}}">{{$localidad->cliente->NomCli}} ({{$localidad->NomLoc}})</option>
                 @endforeach
             </select>
 

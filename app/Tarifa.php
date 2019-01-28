@@ -8,13 +8,13 @@ class Tarifa extends Model
 {
     protected $table = 'tar_tip_uni_cli';
 
-    protected $fillable = ['CliId', 'TipUniId', 'TipSerId', 'TarTipUniCli', 'ObsTar'];
+    protected $fillable = ['LocId', 'TipUniId', 'TipSerId', 'TarTipUniCli', 'ObsTar'];
 
     protected $primaryKey = 'TarTipUniCliId';
 
-    public function cliente()
+    public function localidad()
     {
-      return $this->belongsTo(Cliente::class,'CliId');
+      return $this->belongsTo(Localidad::class,'LocId');
     }
 
     public function tipo_unidad()

@@ -1,3 +1,17 @@
+$('.btnEditar').on('click', function() {
+    /*Si antes se presiono el boton de mas.., reactivamos los campos para poderlos editar*/
+    /*Esta funcion esta en el js de tabla.js, permite
+    reactivar los inputs*/
+    reactivar();
+});
+
+//Regresar datos originales
+$('#btnAgregar').on('click', function() {
+    /*Esta funcion esta en el js de tabla.js, permite
+    reactivar los inputs*/
+    reactivar();
+});
+
 function editar(id) {
     //Modificar el titulo del modal
     $('.modal-title').text('Editar Localidad');
@@ -19,8 +33,5 @@ function editar(id) {
         $('input[name=RfcLoc]').val(data.RfcLoc);
         $('input[name=DisLoc]').val(data.DisLoc);
         $('textarea[name=ObsLoc]').val(data.ObsLoc);
-
-
-
     });
 }

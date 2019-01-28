@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cliente;
+use App\Localidad;
 use App\TipoServicio;
 use App\TipoUnidad;
 use App\Tarifa;
@@ -18,10 +18,10 @@ class TarifaController extends Controller
      public function index()
       {
             $tarifas=Tarifa::all();
-            $clientes=Cliente::all();
+            $localidades=Localidad::all();
             $tiposervicios=TipoServicio::all();
             $tipounidades=TipoUnidad::all();
-            return view('Tarifa.index',compact('tarifas','clientes','tiposervicios','tipounidades'));
+            return view('Tarifa.index',compact('tarifas','localidades','tiposervicios','tipounidades'));
       }
 
       /**
@@ -65,9 +65,9 @@ class TarifaController extends Controller
         return Tarifa::find($id);
       }
 
-      public function showTipo($cliente,$tipo)
+      public function showTipo($localidad,$tipo)
       {
-        $tarifa=Tarifa::where('TipUniId',$tipo)->where('CliId',$cliente)->first();
+        $tarifa=Tarifa::where('TipUniId',$tipo)->where('LocId',$localidad)->first();
         return $tarifa->TarTipUniCli;
       }
 

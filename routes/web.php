@@ -48,7 +48,6 @@ Route::group(['middleware' => ['admin']],function ()
   Route::post('Localidad/agregar','LocalidadController@store');
   Route::post('Localidad/actualizar/{id}', 'LocalidadController@update');
   Route::get('Localidad/mostrar/{id}', 'LocalidadController@show');
-
   Route::get('Localidad/eliminar/{id}', 'LocalidadController@destroy');
 
   //TipoUnidad
@@ -121,6 +120,7 @@ Route::group(['middleware' => ['admin']],function ()
 
   //Movimientos
   Route::get('Movimientos','MovimientoController@index');
+  Route::get('Movimiento/editar/{id}','MovimientoController@edit');
   Route::post('Movimiento/agregar','MovimientoController@store');
   Route::get('Movimiento/crear','MovimientoController@create');
   Route::post('Movimiento/actualizar/{id}', 'MovimientoController@update');
@@ -129,6 +129,7 @@ Route::group(['middleware' => ['admin']],function ()
 
   //Unidades, Operadores, Transportistas
   Route::get('UniOpeTra','UniOpeTraController@index');
+  Route::post('UniOpeTra/agregar', 'UniOpeTraController@store');
   Route::post('UniOpeTra/actualizar/{id}', 'UniOpeTraController@update');
   Route::get('UniOpeTra/mostrar/{id}', 'UniOpeTraController@show');
   Route::get('UniOpeTra/eliminar/{id}', 'UniOpeTraController@destroy');
@@ -188,7 +189,6 @@ Route::post('Evento/actualizar/{id}', 'EventoController@update');
 Route::get('Evento/mostrar/{id}', 'EventoController@show');
 Route::get('Evento/eliminar/{id}', 'EventoController@destroy');
 Route::get('Localidades/mostrar/{id}', 'LocalidadController@showLocalidades');
-
 //Agregar evidencias
 Route::get('Evidencias','EvidenciaController@index');
 Route::post('Evidencia/agregar','EvidenciaController@store');

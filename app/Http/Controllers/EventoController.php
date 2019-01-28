@@ -84,7 +84,7 @@ class EventoController extends Controller
      }
 
      public function guardar(Request $request)
-     {       
+     {
        $evento = new Evento();
        $evento->fill($request->all());
 
@@ -152,9 +152,9 @@ class EventoController extends Controller
       */
      public function destroy($id)
      {
-         Cliente::destroy($id);
+         Evento::destroy($id);
 
-         Session::flash('message', 'Cliente eliminado correctamente');
+         Session::flash('message', 'Evento eliminado correctamente');
          Session::flash('class', 'success');
 
          return back();

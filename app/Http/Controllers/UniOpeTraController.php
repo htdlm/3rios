@@ -44,7 +44,22 @@ class UniOpeTraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $registro=new UnidadOperadorTransportista();
+        $registro->fill($request->all());
+
+        /*Como esta bloqueado el id del transportista no se manda
+        entonces lo buscamos automaticamente*/
+        $unidad=Unidad::find($registro->UniId);
+        $registro->TraId=$unidad->TraId;
+        if($registro->save()){
+          Session::flash('message','Registro insertado correctamente');
+          Session::flash('class','success');
+        }else{
+          Session::flash('message','Algo salio mal');
+          Session::flash('class','danger');
+        }
+
+        return back();
     }
 
     /**
@@ -108,6 +123,11 @@ class UniOpeTraController extends Controller
      */
     public function destroy($id)
     {
-        //
+      UnidadOperadorTransportista::destroy($id);
+
+      Session::flash('message', 'registro eliminado correctamente');
+      Session::flash('class', 'success');
+
+      return back();
     }
 }

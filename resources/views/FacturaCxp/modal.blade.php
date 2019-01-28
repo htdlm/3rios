@@ -28,19 +28,19 @@
 				</div>
 				<div class="col-lg-6">
 					<label for="importe">Importe</label>
-					<input type="number" step="any" readonly="readonly" class="form-control" placeholder="$ Importe" name="ImpFac" value="{{old('ImpFac')}}">
+					<input type="number" step="any" class="form-control" placeholder="$ Importe" name="ImpFac" value="{{old('ImpFac')}}">
 
 					<label for="iva">IVA <span style="color:#FF0000;font-size: 15pt">*</span></label>
-					<input type="number" required step="any" class="form-control" placeholder="% IVA" name="IvaFac" value="{{old('IvaFac')}}">
+					<input type="number" required step="any" class="form-control" placeholder="% IVA" name="IvaFac" value="16">
 					<small id="passwordHelpBlock" class="form-text text-muted">
 						Introduzca 0 en caso de no aplicar
 					</small>
 
 					<label for="subtotal">Subtotal</label>
-					<input type="number" step="any" readonly="readonly" class="form-control" placeholder="$ Subtotal" name="SubFac" value="{{old('SubFac')}}">
+					<input type="number" step="any" class="form-control" placeholder="$ Subtotal" name="SubFac" value="{{old('SubFac')}}">
 
 					<label for="retencion">Retencion <span style="color:#FF0000;font-size: 15pt">*</span></label>
-					<input type="number" step="any" required class="form-control" placeholder="% Retencion" name="RetFac" value="{{old('RetFac')}}">
+					<input type="number" step="any" required class="form-control" placeholder="% Retencion" name="RetFac" value="4">
 					<small id="passwordHelpBlock" class="form-text text-muted">
 						Introduzca 0 en caso de no aplicar
 					</small>

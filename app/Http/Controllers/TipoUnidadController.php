@@ -63,9 +63,9 @@ class TipoUnidadController extends Controller
 
     /*Dependiendo del cliente, hay una o varias Tarifas
     donde cada una tiene un tipo de unidad*/
-    public function showCliente($idCliente)
+    public function showCliente($LocId)
     {
-      $tarifas=Tarifa::where('CliId',$idCliente)->get();
+      $tarifas=Tarifa::where('LocId',$LocId)->get();
       $unidades=[];
       foreach ($tarifas as $tarifa) {
         $tipoUnidad=TipoUnidad::find($tarifa->TipUniId);

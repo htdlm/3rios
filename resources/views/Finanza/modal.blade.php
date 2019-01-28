@@ -8,8 +8,8 @@ Nueva Finanza
     <div class="row">
         <div class="col-lg-12">
           <label for="tipounidad">Movimiento <span style="color:#FF0000;font-size: 15pt">*</span></label>
-          <select class="form-control" required name="MovId">
-            <option value="1">AD17</option>
+          <select class="form-control" required name="MovId">            
+            <option value="0">Seleccione un movimiento</option>
             @foreach($movimientos as $movimiento)
             <option value="{{$movimiento->MovId}}">{{$movimiento->RefCli}}</option>
             @endforeach
@@ -28,7 +28,7 @@ Nueva Finanza
             <small id="passwordHelpBlock" class="form-text text-muted">
               Introduzca 0 en caso de no aplicar
             </small>
-            
+
             <label for="total">Total</label>
             <input type="number" readonly class="form-control" placeholder="Total" name="TotFin" value="{{old('TotFin')}}">
         </div>

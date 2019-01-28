@@ -18,6 +18,12 @@ class Localidad extends Model
         return $this->belongsTo(Cliente::class,'CliId');
     }
 
+    /*Una localidad tiene asiganda una tarifa*/
+    public function tarifa()
+    {
+      return $this->hasOne(Tarifa::class,'LocId');
+    }
+
     /* Hay una relacion de moviemientos
 a localidades, pero creo que no es
 necesaria marcarla aqui*/

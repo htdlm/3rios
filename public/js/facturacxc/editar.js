@@ -1,6 +1,6 @@
 function editar(id) {
-    //Bloquear movimiento
-    $('select[name=MovId]').attr('disabled', 'true');
+    /*Bloquear movimiento CAMBIO*/
+    //$('select[name=MovId]').attr('disabled', 'true');
 
     //Modificar el titulo del modal
     $('.modal-title').text('Editar Factura (Cxc)');

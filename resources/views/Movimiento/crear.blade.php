@@ -5,8 +5,9 @@
 </div>
 @endif
 <h1 class="text-center">Nuevo Movimiento</h1>
+
 <hr>
-<form class="form-group" action="{{url('Movimiento/agregar')}}" method="post">
+<form class="form-group" action="{{url('Movimiento/agregar')}}" method="post" id="frmAgregar">
     {{csrf_field()}}
     <div class="row">
         <div class="col-lg-3">
@@ -113,7 +114,7 @@
             </div>
             <div class="col-lg-6">
                 <label for="kilosnetos">Kilos Netos</label>
-                <input class="form-control" type="number" step="any" readonly="readonly" name="KilNet" value="{{old('KilNet')}}" placeholder="Cantidad de kilos netos">
+                <input class="form-control" type="number" step="any" name="KilNet" value="{{old('KilNet')}}" placeholder="Cantidad de kilos netos">
                 <!-- LLenado automatico -->
                 <label for="factortarifa">Factor de la tarifa</label>
                 <input class="form-control" type="number" step="any" readonly="readonly" name="FacTar" value="{{old('FacTar')}}" placeholder="Factor de la tarifa al cliente">
@@ -134,5 +135,10 @@
 
     </form>
     @endsection @section('scripts')
+    @if(isset($movimiento))
+    <input type="hidden" name="MovId" value="{{$movimiento}}">
+    <script type="text/javascript" src="{{asset('js/movimiento/editar.js')}}">
+    </script>
+    @endif
     <script type="text/javascript" src="{{asset('js/movimiento/data.js')}}"></script>
     @endsection

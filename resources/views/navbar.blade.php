@@ -33,6 +33,7 @@
         Movimientos
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a href="/Movimientos" class="dropdown-item">Ver movimientos</a>
       <a href="/Movimiento/crear" class="dropdown-item">Nuevo movimiento</a>
       <a href="/FasesMovimientos" class="dropdown-item" >Fases de Movimientos</a>
       <a class="dropdown-item" href="/Evidencias">Agregar Evidencias</a>

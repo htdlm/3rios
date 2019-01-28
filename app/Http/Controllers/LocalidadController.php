@@ -58,7 +58,7 @@ class LocalidadController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {      
         return Localidad::find($id);
     }
 

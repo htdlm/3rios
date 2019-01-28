@@ -17,10 +17,10 @@ Nuevo Evento
             <input type="date" class="form-control" name="FecCreEve" readonly value="<?php echo date('Y-m-d');?>">
 
             <label for="fechaactualizacion">Fecha de actualizacion</label>
-            <input type="date" class="form-control" name="FecAct" value="{{old('FecAct')}}">
+            <input type="date" class="form-control" name="FecAct" value="<?php echo date('Y-m-d'); ?>">
 
             <label for="fechasolicitud">Fecha de solicitud</label>
-            <input type="date" class="form-control" name="FecSol" value="{{old('FecSol')}}">
+            <input type="date" class="form-control" name="FecSol" value="<?php echo date('Y-m-d'); ?>">
 
             <label for="fechareal">Fecha real</label>
             <input type="date" class="form-control" name="FecRea" value="<?php echo date('Y-m-d'); ?>">

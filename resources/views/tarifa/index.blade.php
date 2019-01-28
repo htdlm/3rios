@@ -25,7 +25,7 @@
 							<table class="table table-striped table-bordered table-sm" id="tblTabla">
 								<thead>
 									<th class="text-center">Id Tarifa</th>
-									<th class="text-center">Cliente</th>
+									<th class="text-center">Localidad</th>
 									<th class="text-center">Tipo de unidad</th>
 									<th class="text-center">Tipo Servicio</th>
 									<th class="text-center">Tarifa</th>
@@ -36,7 +36,7 @@
 									@foreach($tarifas as $tarifa)
 									<tr>
 										<td class="text-center">{{$tarifa->TarTipUniCliId}}</td>
-										<td class="text-center">{{$tarifa->cliente->NomCli}}</td>
+										<td class="text-center">{{$tarifa->localidad->cliente->NomCli}} ({{$tarifa->localidad->NomLoc}})</td>
 										<td class="text-center">{{$tarifa->tipo_unidad->DesTipUni}}</td>
 										<td class="text-center">{{$tarifa->tipo_servicio->TipSer}}</td>
 										<td class="text-center">{{$tarifa->TarTipUniCli}}</td>

@@ -1,6 +1,6 @@
 @extends('layouts.modal')
 @section('titulo')
-Nueva Finanza
+Nuevo Pago
 @endsection
 @section('body')
 <form action="PagoCxc/agregar" method="post" id="frmAgregar">

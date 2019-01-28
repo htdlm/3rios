@@ -18,7 +18,8 @@ class MovimientoController extends Controller
      */
     public function index()
     {
-
+      $movimientos=Movimiento::all();
+      return view('Movimiento.index',compact('movimientos'));
     }
 
     /**
@@ -68,7 +69,7 @@ class MovimientoController extends Controller
      */
     public function show($id)
     {
-
+      return Movimiento::find($id);
     }
 
     public function getImporte($id)
@@ -84,7 +85,12 @@ class MovimientoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $clientes=Cliente::all();
+        $movimiento=Movimiento::find($id);
+        $movimiento=$movimiento->MovId;
+        $fases=FaseMovimiento::all();
+        $adicionales=Adicional::all();
+        return view('Movimiento.crear',compact('movimiento','clientes','fases','adicionales'));
     }
 
     /**
@@ -107,6 +113,11 @@ class MovimientoController extends Controller
      */
     public function destroy($id)
     {
-        //
+      Movimiento::destroy($id);
+
+      Session::flash('message', 'Movimiento eliminado correctamente');
+      Session::flash('class', 'success');
+
+      return back();
     }
 }
