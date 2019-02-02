@@ -4,7 +4,7 @@
         <button type="button" class="close" data-dismiss="alert">&times;</button>{{Session::get('message')}}</div>
 </div>
 @endif
-<h1 class="text-center">Nuevo Movimiento</h1>
+<h1 class="text-center">Nuevo Servicio</h1>
 
 <hr>
 <form class="form-group" action="{{url('Movimiento/agregar')}}" method="post" id="frmAgregar">
@@ -66,40 +66,46 @@
                 <select name="UniId" id="unidad" required class="form-control">
                   <!-- Llenar automatico -->
                 </select>
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                  Necesario seleccionar tipo de unidad
+                </small>
             </div>
             <div class="col-lg-3">
-                <h3 class="text-center">Adicionales</h3>
-                <label for="adicional1">Adicional 1</label>
+                <h3 class="text-center">Eventualidades</h3>
+                <label for="adicional1">Eventualidad 1</label>
                 <select class="form-control" name="AdiId1">
-                    <option value="">En caso de existir</option>
+                    <option value="0">En caso de existir</option>
                     @foreach($adicionales as $adicional)
-                    <option value="{{$adicional->AdiId}}">{{$adicional->DesAdi}}</option>
+                    <option value="{{$adicional->AdiId}}" data-costo="{{$adicional->CosAdi}}">{{$adicional->DesAdi}}</option>
                     @endforeach
                 </select>
+                <input type="text" class="form-control" name="AdiValId1" value="{{old('AdiValId1')}}" placeholder="Cantidad">
 
-                <label for="adicional2">Adicional 2</label>
+                <label for="adicional2">Eventualidad 2</label>
                 <select class="form-control" name="AdiId2">
-                    <option value="">En caso de existir</option>
+                    <option value="0">En caso de existir</option>
                     @foreach($adicionales as $adicional)
-                    <option value="{{$adicional->AdiId}}">{{$adicional->DesAdi}}</option>
+                    <option value="{{$adicional->AdiId}}" data-costo="{{$adicional->CosAdi}}">{{$adicional->DesAdi}}</option>
                     @endforeach
                 </select>
+                <input type="text" class="form-control" name="AdiValId2" value="{{old('AdiValId2')}}" placeholder="Cantidad">
 
-                <label for="adicional3">Adicional 3</label>
+                <label for="adicional3">Eventualidad 3</label>
                 <select class="form-control" name="AdiId3">
-                    <option value="">En caso de existir</option>
+                    <option value="0">En caso de existir</option>
                     @foreach($adicionales as $adicional)
-                    <option value="{{$adicional->AdiId}}">{{$adicional->DesAdi}}</option>
+                    <option value="{{$adicional->AdiId}}" data-costo="{{$adicional->CosAdi}}">{{$adicional->DesAdi}}</option>
                     @endforeach
                 </select>
+                <input type="text" class="form-control" name="AdiValId3" value="{{old('AdiValId3')}}" placeholder="Cantidad">
             </div>
         </div>
         <hr>
-        <h3 class="text-center">Datos del movimiento</h3>
+        <h3 class="text-center">Datos del Servicio</h3>
         <hr>
         <div class="row">
             <div class="col-lg-6">
-                <label for="fase">Fase del movimiento <span style="color:#FF0000;font-size: 15pt">*</span></label>
+                <label for="fase">Fase del servicio <span style="color:#FF0000;font-size: 15pt">*</span></label>
                 <select class="form-control" required name="FasMovId">
                     @foreach($fases as $fase)
                     <option value="{{$fase->FasMovId}}">{{$fase->FasMov}}</option>
@@ -116,12 +122,12 @@
                 <label for="kilosnetos">Kilos Netos</label>
                 <input class="form-control" type="number" step="any" name="KilNet" value="{{old('KilNet')}}" placeholder="Cantidad de kilos netos">
                 <!-- LLenado automatico -->
-                <label for="factortarifa">Factor de la tarifa</label>
-                <input class="form-control" type="number" step="any" readonly="readonly" name="FacTar" value="{{old('FacTar')}}" placeholder="Factor de la tarifa al cliente">
+                <label for="factortarifa">Factor de la tarifa <span style="color:#FF0000;font-size: 15pt">*</span></label>
+                <input class="form-control" type="number" step="any" readonly="readonly" name="FacTar" value="{{old('FacTar')}}" placeholder="Debes seleccionar un cliente y unidad">
 
                 <!-- Calculo entre los kilos netos y la tarifa -->
                 <label for="totaltarifa">Factor total de la Tarifa</label>
-                <input class="form-control" type="number" step="any" readonly="readonly" name="FacTarTot" value="{{old('FacTarTot')}}" placeholder="Total de la tarifa">
+                <input class="form-control" type="number" step="any" required readonly="readonly" name="FacTarTot" value="{{old('FacTarTot')}}" placeholder="Total de la tarifa">
 
             </div>
             <div class="col-lg-12">

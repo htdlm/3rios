@@ -10,7 +10,7 @@
 			<div class="card-header">
 				<div class="row">
 					<div class="col-lg-8">
-						<h2 class="text-center">Fases de Movimiento</h2>
+						<h2 class="text-center">Fases de Servicio</h2>
 					</div>
 					<div class="col-lg-4">
 						<button class="btn btn-primary btn-block btn-lg" data-target="#ventana" data-toggle="modal" id="btnAgregar">

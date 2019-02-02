@@ -8,11 +8,11 @@
 			<div class="card-header">
 				<div class="row">
 					<div class="col-lg-8">
-						<h2 class="text-center">Movimientos</h2>
+						<h2 class="text-center">Servicios</h2>
 					</div>
 					<div class="col-lg-4">
 						<a href="{{url('Movimiento/crear')}}" class="btn btn-primary btn-block btn-lg" id="btnAgregar">
-							Añadir Movimiento
+							Añadir Servicio
 							<img alt="" src="{{asset('imagenes/agregar.png')}}"/>
 						</a>
 					</div>
@@ -25,7 +25,7 @@
 							<table class="table table-striped table-bordered table-sm" id="tblTabla">
 								<thead>
 									<th class="text-center">Fecha de creacion</th>
-									<th class="text-center">Fase del movimiento</th>
+									<th class="text-center">Fase del servicio</th>
 									<th class="text-center">Localidad</th>
 									<th class="text-center">Referencia Minigrip</th>
 									<th class="text-center">$$$ Factor total</th>
@@ -36,7 +36,7 @@
 								</thead>
 								<tbody>
 									@foreach($movimientos as $movimiento)
-									<tr>										
+									<tr>
 										<td class="text-center">{{$movimiento->FecCre}}</td>
 										<td class="text-center">{{$movimiento->fase_movimiento->FasMov}}</td>
 										<td class="text-center">{{$movimiento->cliente_localidad->NomLoc}}</td>

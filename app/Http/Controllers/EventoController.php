@@ -30,8 +30,8 @@ class EventoController extends Controller
        return view('Evento.index', compact('movimientos','fases','adicionales'));
      }
 
-       public function indexLocalidad($id)
-       {
+    public function indexLocalidad($id)
+    {
          $fases=FaseMovimiento::all();
          $adicionales=Adicional::all();
          $movimientos=Movimiento::where('CliLocId',$id)->get();
@@ -68,9 +68,9 @@ class EventoController extends Controller
      public function store(Request $request)
      {
          $evento = new Evento();
-         $evento->fill($request->all());
+         $evento->fill($request->all());         
 
-        //Traer el id de usuario de la sesion
+          //Traer el id de usuario de la sesion
           $evento->UseId=Auth()->user()->UseId;
 
          if ($evento->save()) {

@@ -3,9 +3,8 @@
         Catalogos
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <a class="dropdown-item" href="/Adicionales">Adicionales</a>
+      <a class="dropdown-item" href="/Adicionales">Eventualidades</a>
       <a href="/Clases" class="dropdown-item">Clases</a>
-      <a class="dropdown-item" href="/Finanzas">Finanzas</a>
       <a href="/Operadores" class="dropdown-item">Operadores</a>
       <a class="dropdown-item" href="/Tarifas">Tarifas</a>
         <a class="dropdown-item" href="/TiposServicios">Tipos de Servicios</a>
@@ -27,15 +26,15 @@
     </div>
 </li>
 <!-- -->
-<!-- Movimientos -->
+<!-- Servicios -->
 <li class="nav-item dropdown active">
     <a class="dropdown-item dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Movimientos
+        Servicios
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <a href="/Movimientos" class="dropdown-item">Ver movimientos</a>
-      <a href="/Movimiento/crear" class="dropdown-item">Nuevo movimiento</a>
-      <a href="/FasesMovimientos" class="dropdown-item" >Fases de Movimientos</a>
+      <a href="/Movimientos" class="dropdown-item">Ver Servicios</a>
+      <a href="/Movimiento/crear" class="dropdown-item">Nuevo Servicio</a>
+      <a href="/FasesMovimientos" class="dropdown-item" >Fases de Servicios</a>
       <a class="dropdown-item" href="/Evidencias">Agregar Evidencias</a>
     </div>
 </li>

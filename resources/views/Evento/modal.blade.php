@@ -26,14 +26,14 @@ Nuevo Evento
             <input type="date" class="form-control" name="FecRea" value="<?php echo date('Y-m-d'); ?>">
 
             <label for="semanaactualizacion">Semana de actualizacion</label>
-            <input type="number" class="form-control" placeholder="Semana de actualizacion" name="SemAct" value="{{old('SemAct')}}">
+            <input type="number" class="form-control" placeholder="Semana de actualizacion" name="SemAct" value="<?php echo date('W'); ?>">
         </div>
         <div class="col-lg-6">
           <label for="semanaSolicitud">Semana de Solicitud</label>
-          <input type="number" class="form-control" placeholder="Semana de Solicitud" name="SemSol" value="{{old('SemSol')}}">
+          <input type="number" class="form-control" placeholder="Semana de Solicitud" name="SemSol" value="<?php echo date('W'); ?>">
 
           <label for="semanaservicio">Semana de servicio</label>
-          <input type="number" class="form-control" placeholder="Semana de servicio" name="SemSer" value="{{old('SemSer')}}">
+          <input type="number" class="form-control" placeholder="Semana de servicio" name="SemSer" value="<?php echo date('W'); ?>">
 
           <label for="semanareal">Semana de real</label>
           <input type="number" class="form-control" placeholder="Semana de real" name="SemRea" value="<?php echo date('W'); ?>">
@@ -45,7 +45,7 @@ Nuevo Evento
               @endforeach
           </select>
 
-          <label for="adicionales">Adicional</label>
+          <label for="adicionales">Eventualidad</label>
           <select class="form-control" name="AdiId">
             <option value="">Ninguno</option>
               @foreach ($adicionales as $adicional)

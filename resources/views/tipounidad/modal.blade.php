@@ -13,7 +13,7 @@ Nueva Unidad
             <label for="capacidadminima">Capacidad Minima <span style="color:#FF0000;font-size: 15pt">*</span></label>
             <input type="text" required class="form-control" placeholder="Capacidad en Toneladas (T)" step="any" name="CapMinUni" value="{{old('CapMinUni')}}">
 
-            <label for="capacidadmaxima">Capacidad Minima <span style="color:#FF0000;font-size: 15pt">*</span></label>
+            <label for="capacidadmaxima">Capacidad Maxima <span style="color:#FF0000;font-size: 15pt">*</span></label>
             <input type="text" class="form-control" required placeholder="Capacidad en Toneladas (T)" step="any" name="CapMaxUni" value="{{old('CapMaxUni')}}">
 
             <label for="observacion">Observacion</label>

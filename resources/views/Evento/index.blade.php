@@ -32,107 +32,47 @@
 		</div>
 	</div>
 </div>
-@foreach($movimiento->eventos as $evento)
 <div class="alert alert-warning">
 	<h4 class="text-left">Destino/Localidad:
-		<strong>{{$evento->movimiento->cliente_localidad->cliente->NomCli}} ({{$evento->movimiento->cliente_localidad->NomLoc}})</strong>
+		<strong>{{$movimiento->cliente_localidad->cliente->NomCli}} ({{$movimiento->cliente_localidad->NomLoc}})</strong>
 	</h4>
 	<h5 class="text-left">Fecha de Servicio
-		<strong>{{$evento->FecCreEve}}</strong>
+		<strong><?php echo date("F j, Y, g:i a",strtotime($movimiento->FecCre))?></strong>
 	</h5>
 	<h5 class="text-left">Codigo Minigrip:
 		<strong>
 			{{$movimiento->RefCli}}</strong>
-	</h5>
-</div>
-<hr>
+		</h5>
+	</div>
+@foreach($movimiento->eventos as $evento)
 <div class="row">
-	<div class="col-lg-4">
-		<div class="card mb-4">
+	<div class="col-lg-12">
+		<div class="card mb-4 border-dark">
 			<div class="card-header">
-				<h3 class="text-center">Fechas</h3>
+				<h3 class="text-center">Datos del Movimiento</h3>
 			</div>
 			<div class="card-body">
-				<p class="card-text">Fecha de Actualizacion:
-					<strong>{{$evento->FecAct}}
-					</strong>
-				</p>
-
-				<p class="card-text">Fecha de Solicitud:
-					<strong>{{$evento->FecSol}}
-					</strong>
-				</p>
-
-				<p class="card-text">Fecha Real:
-					<strong>{{$evento->FecRea}}
-					</strong>
-				</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-lg-4">
-		<div class="card mb-4">
-			<div class="card-header">
-				<h3 class="text-center">Semanas</h3>
-			</div>
-			<div class="card-body">
-				<p class="card-text">Semana de Actualizacion:
-					<strong>{{$evento->SemAct}}
-					</strong>
-				</p>
-
-				<p class="card-text">Semana de Solicitud:
-					<strong>{{$evento->SemSol}}
-					</strong>
-				</p>
-
-				<p class="card-text">Semana Real:
-					<strong>{{$evento->SemRea}}
-					</strong>
-				</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-lg-4">
-		<div class="card mb-4">
-			<div class="card-header">
-				<h3 class="text-center">Datos Movimiento</h3>
-			</div>
-			<div class="card-body">
+				<h5>
+					<p>
 				@if($evento->fase_movimiento->PriFas && Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
-				<p class="card-text">Fase del Movimiento:
-					<strong>{{$evento->fase_movimiento->FasMov}}
+					<strong>{{$evento->fase_movimiento->FasMov}}:
 					</strong>
-				</p>
 				@elseif(!$evento->fase_movimiento->PriFas)
-				<p class="card-text">Fase del Movimiento:
-					<strong>{{$evento->fase_movimiento->FasMov}}
+					<strong>{{$evento->fase_movimiento->FasMov}} @if($loop->index>0){{$loop->index}}@endif:
 					</strong>
-				</p>
-				@endif @if(($evento->adicional)!=null)
-				<p class="card-text">Adicional:
-					<strong>
-						{{$evento->adicional->DesAdi}}
-						= ${{$evento->adicional->CosAdi}}
-					</strong>
-				</p>
-				@endif @if(($evento->ObsEve)!=null)
-				<p class="card-text">Observaciones:
-					<strong>{{$evento->ObsEve}}
-					</strong>
-				</p>
-				@endif @if(Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
-				<p class="card-text">Usuario capturador:
-					<strong>{{$evento->user->name}}
+				@endif
+				<p class="font-weight-bolder"><?php echo date("F j, Y, / g:i a",strtotime($evento->FecRea))?> / {{$evento->ObsEve}}</p>
+			</p>
+			</h5>
+			@if(Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
+				<p class="card-text">Mesa de control:
+					<strong>{{$evento->user->name}}/L3R
 					</strong>
 				</p>
 				@endif
 			</div>
 		</div>
 	</div>
-
 </div>
 @endforeach
 <br>

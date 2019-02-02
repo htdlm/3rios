@@ -24,8 +24,7 @@
             <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img alt="" height="60" src="{{asset('imagenes/icono.png')}}" width="100">
-                        {{ config('app.name', 'Laravel') }}
+                        <img alt="" src="{{asset('imagenes/logopag.png')}}" width="140px">                                              
                     </a>
                     <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
                         <span class="navbar-toggler-icon"></span>
