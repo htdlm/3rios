@@ -24,7 +24,6 @@
 						<div class="table-responsive-lg col-lg-12">
 							<table class="table table-striped table-bordered table-sm" id="tblTabla">
 								<thead>
-									<th class="text-center">Id Movimiento</th>
 									<th class="text-center">Fecha de creacion</th>
 									<th class="text-center">Fase del movimiento</th>
 									<th class="text-center">Localidad</th>
@@ -33,11 +32,11 @@
 									<th class="text-center">Editar</th>
 									<th class="text-center">Eliminar</th>
 									<th class="text-center">Mas</th>
+									<th class="text-center">Excel</th>
 								</thead>
 								<tbody>
 									@foreach($movimientos as $movimiento)
-									<tr>
-										<td class="text-center">{{$movimiento->MovId}}</td>
+									<tr>										
 										<td class="text-center">{{$movimiento->FecCre}}</td>
 										<td class="text-center">{{$movimiento->fase_movimiento->FasMov}}</td>
 										<td class="text-center">{{$movimiento->cliente_localidad->NomLoc}}</td>
@@ -53,6 +52,9 @@
 										</td>
 										<td class="text-center">
 											<a href="{{url('Movimiento/editar')}}/{{$movimiento->MovId}}" class="btn btn-warning btnMas" value="{{$movimiento->MovId}}">Mas..</a>
+										</td>
+										<td class="text-center">
+											<a href="{{url('Movimiento/excel')}}/{{$movimiento->MovId}}" class="btn btn-success btnMas" value="{{$movimiento->MovId}}">Excel</a>
 										</td>
 									</tr>
 									@endforeach

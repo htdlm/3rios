@@ -11,17 +11,13 @@
 <div class="row">
 	<div class="col-lg-12">
 		<div class="row">
+			@if(Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
 			<div class="col-lg-8">
+				@else
+				<div class="col-lg-12">
+				@endif
 				<div class="alert alert-primary">
-					@if(Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
-					<h3 class="text-left">Id del movimiento:
-						<strong>
-							{{$movimiento->MovId}}</strong>
-					</h3>
-					@endif
-					<h3 class="text-left">Codigo Minigrip:
-						<strong>
-							{{$movimiento->RefCli}}</strong>
+					<h3 class="text-left">Logística Tres Ríos - Reporte de Status de Servicio en Transito
 					</h3>
 				</div>
 			</div>
@@ -38,11 +34,15 @@
 </div>
 @foreach($movimiento->eventos as $evento)
 <div class="alert alert-warning">
-	<h4 class="text-left">Id del evento:
-		<strong>{{$evento->EveId}}</strong>
+	<h4 class="text-left">Destino/Localidad:
+		<strong>{{$evento->movimiento->cliente_localidad->cliente->NomCli}} ({{$evento->movimiento->cliente_localidad->NomLoc}})</strong>
 	</h4>
-	<h5 class="text-left">Fecha de Creacion del Evento:
+	<h5 class="text-left">Fecha de Servicio
 		<strong>{{$evento->FecCreEve}}</strong>
+	</h5>
+	<h5 class="text-left">Codigo Minigrip:
+		<strong>
+			{{$movimiento->RefCli}}</strong>
 	</h5>
 </div>
 <hr>

@@ -8,6 +8,8 @@ use App\Movimiento;
 use App\FaseMovimiento;
 use App\Adicional;
 use Session;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\MovimientoExport;
 
 class MovimientoController extends Controller
 {
@@ -33,6 +35,16 @@ class MovimientoController extends Controller
       $fases=FaseMovimiento::all();
       $adicionales=Adicional::all();
       return view('Movimiento.crear',compact('clientes','fases','adicionales'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function excel($idMovimiento)
+    {
+      return Excel::download(new MovimientoExport,'Movimiento.xlsx');
     }
 
     /**

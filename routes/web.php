@@ -123,6 +123,7 @@ Route::group(['middleware' => ['admin']],function ()
   Route::get('Movimiento/editar/{id}','MovimientoController@edit');
   Route::post('Movimiento/agregar','MovimientoController@store');
   Route::get('Movimiento/crear','MovimientoController@create');
+  Route::get('Movimiento/excel/{idMovimiento}','MovimientoController@excel');
   Route::post('Movimiento/actualizar/{id}', 'MovimientoController@update');
   Route::get('Movimiento/mostrar/{id}', 'MovimientoController@show');
   Route::get('Movimiento/eliminar/{id}', 'MovimientoController@destroy');
