@@ -2,7 +2,7 @@ function editar(id) {
     //Modificar el titulo del modal
     $('.modal-title').text('Editar Pago (Cxp)');
     //Modificar el titulo y color del boton del modal
-    $('#btnCrear').val('Editar').removeClass('btn-success').addClass('btn-info');
+    $('#btnCrear').val('Editar'); //.removeClass('btn-success').addClass('btn-info');*/
     //Modificar action del form
     $('#frmAgregar').attr('action', 'PagoCxp/actualizar/' + id);
     $.get('PagoCxp/mostrar/' + id, function(data) {
@@ -17,9 +17,9 @@ function editar(id) {
         $('textarea[name=ObsPag]').val(data.ObsPag);
     });
 
-    /*Bloquear campos*/
+    /*Bloquear campos (MODIFICACION)
     $('select[name=FacCxpNum]').attr('disabled', 'true');
-    $('input[name=MonPag]').attr('disabled', 'true');
+    $('input[name=MonPag]').attr('disabled', 'true');*/
 }
 
 /*Desbloquear campos para agregar registro*/

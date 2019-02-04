@@ -3,7 +3,7 @@ $(document).ready(function() {
     //Modificar el titulo del modal
     $('h1').text('Editar Movimiento');
     //Modificar el titulo y color del boton del modal
-    $('#btnRegistrar').val('Editar').removeClass('btn-success').addClass('btn-info');
+    $('#btnRegistrar').val('Editar'); //.removeClass('btn-success').addClass('btn-info');*/
     //Modificar action del form
     $('#frmAgregar').attr('action', 'Movimiento/actualizar/' + id);
     $.get('/Movimiento/mostrar/' + id, function(data) {
@@ -29,13 +29,17 @@ $(document).ready(function() {
         /*Adidcionales*/
         $('select[name=AdiId1]').find(':selected').attr('selected', false);
         $("select[name=AdiId1] option[value='" + data.AdiId1 + "']").attr('selected', true);
+        $('input[name=AdiValId1]').val(data.AdiValId1);
 
         /*Adidcionales*/
         $('select[name=AdiId2]').find(':selected').attr('selected', false);
         $("select[name=AdiId2] option[value='" + data.AdiId2 + "']").attr('selected', true);
+        $('input[name=AdiValId2]').val(data.AdiValId2);
 
+        /*Adivionales*/
         $('select[name=AdiId3]').find(':selected').attr('selected', false);
         $("select[name=AdiId3] option[value='" + data.AdiId3 + "']").attr('selected', true);
+        $('input[name=AdiValId3]').val(data.AdiValId3);
 
         /*Fase de movimiento*/
         $('select[name=FasMovId]').find(':selected').attr('selected', false);

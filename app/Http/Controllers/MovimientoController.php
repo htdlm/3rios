@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cliente;
+use Mail;
 use App\Movimiento;
 use App\FaseMovimiento;
 use App\Adicional;
 use Session;
+use App\Localidad;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\MovimientoExport;
+use App\Exports\ReporteMovimientoExport;
 
 class MovimientoController extends Controller
 {
+    protected $correo='';
     /**
      * Display a listing of the resource.
      *
@@ -42,10 +45,11 @@ class MovimientoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function excel($idMovimiento)
+    public function excel($id)
     {
-      return Excel::download(new MovimientoExport,'Movimiento.xlsx');
+      return (new ReporteMovimientoExport($id))->download('Servicio.xlsx');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -70,7 +74,42 @@ class MovimientoController extends Controller
         Session::flash('message','Algo salio mal');
         Session::flash('class','danger');
       }
+
+      /*Email al que se mandara la info del Servicio*/
+      $this->correo=Localidad::find($request->CliLocId)->EmaLoc;
+      try{
+        if($this->correo!=''){
+            $data=array(
+              'fecha' => $request->FecCre,
+              'localidad'=>Localidad::find($request->CliLocId),
+              'referencia'=>$request->RefCli
+            );
+
+            /*Mandar Mail*/
+            Mail::send('Movimiento.email',$data,function($message){
+              $message->from('3RiosLogistica@gmail.com','3Rios Logistica');
+              $message->to($this->correo)->subject('Nuevo Servicio 3Rios');
+            });
+        }
+    }catch(Exception $e){
+      Session::flash('message','Servicio agregado. Posible email incorrecto');
+      Session::flash('class','warning');
+    }
+
       return back();
+    }
+
+    public function email(Request $request)
+    {
+      /*Mandar Mail*/
+      $data=array(
+        'data'=> 'Email enviado',
+      );
+
+      Mail::send('Movimiento.email',$data,function($message){
+        $message->from('3RiosLogistica@gmail.com','3Rios Servicio');
+        $message->to('adrian.cruz.islas@gmail.com')->subject('Test de email');
+      });
     }
 
     /**

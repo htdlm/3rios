@@ -12,7 +12,8 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 
-class FacturaCxpExport implements FromCollection, WithHeadings, WithMapping,ShouldAutoSize,WithColumnFormatting,WithEvents
+class FacturaCxpExport implements FromCollection, WithHeadings,
+ WithMapping,ShouldAutoSize,WithColumnFormatting,WithEvents
 {
     /**
     * @return \Illuminate\Support\Collection

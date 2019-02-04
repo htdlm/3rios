@@ -8,7 +8,7 @@ Nueva Finanza
     <div class="row">
         <div class="col-lg-12">
           <label for="tipounidad">Movimiento <span style="color:#FF0000;font-size: 15pt">*</span></label>
-          <select class="form-control" required name="MovId">            
+          <select class="form-control" required name="MovId">
             <option value="0">Seleccione un movimiento</option>
             @foreach($movimientos as $movimiento)
             <option value="{{$movimiento->MovId}}">{{$movimiento->RefCli}}</option>
@@ -33,6 +33,6 @@ Nueva Finanza
             <input type="number" readonly class="form-control" placeholder="Total" name="TotFin" value="{{old('TotFin')}}">
         </div>
     </div>
-    <input type="submit" class="btn btn-success btn-block btn-lg mt-4" value="Agregar" id="btnCrear">
+    <input type="submit" class="btn btn-primary btn-block btn-lg mt-4" value="Agregar" id="btnCrear">
 </form>
 @endsection

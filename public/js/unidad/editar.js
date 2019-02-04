@@ -2,7 +2,7 @@ function editar(id) {
     //Modificar el titulo del modal
     $('.modal-title').text('Editar Unidad');
     //Modificar el titulo y color del boton del modal
-    $('#btnCrear').val('Editar').removeClass('btn-success').addClass('btn-info');
+    $('#btnCrear').val('Editar'); //.removeClass('btn-success').addClass('btn-info');*/
     //Modificar action del form
     $('#frmAgregar').attr('action', 'Unidad/actualizar/' + id);
     $.get('Unidad/mostrar/' + id, function(data) {

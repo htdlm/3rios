@@ -5,7 +5,7 @@ function editar(id) {
     //Modificar el titulo del modal
     $('.modal-title').text('Editar Factura (Cxp)');
     //Modificar el titulo y color del boton del modal
-    $('#btnCrear').val('Editar').removeClass('btn-success').addClass('btn-info');
+    $('#btnCrear').val('Editar'); //.removeClass('btn-success').addClass('btn-info');
     //Modificar action del form
     $('#frmAgregar').attr('action', '/FacturaCxp/actualizar/' + id);
     $.get('/FacturaCxp/mostrar/' + id, function(data) {

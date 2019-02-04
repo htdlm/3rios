@@ -57,6 +57,6 @@ Nuevo Evento
             <textarea class="form-control" placeholder="Observaciones" name="ObsEve" value="">{{old('ObsEve')}}</textarea>
         </div>
     </div>
-    <input type="submit" class="btn btn-success btn-block btn-lg mt-4" value="Agregar" id="btnCrear">
+    <input type="submit" class="btn btn-primary btn-block btn-lg mt-4" value="Agregar" id="btnCrear">
 </form>
 @endsection

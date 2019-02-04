@@ -46,16 +46,16 @@
 					</small>
 
 					<label for="total">Total</label>
-					<input type="number" step="any" readonly="readonly" class="form-control" placeholder="$ Total" name="TotFac" value="{{old('TotFac')}}">
+					<input type="number" step="any" class="form-control" placeholder="$ Total" name="TotFac" value="{{old('TotFac')}}">
 
 					<label for="saldo">Saldo</label>
-					<input type="number" step="any" readonly="readonly" class="form-control" placeholder="$ Saldo" name="SalFac" value="{{old('SalFac')}}">
+					<input type="number" step="any" class="form-control" placeholder="$ Saldo" name="SalFac" value="{{old('SalFac')}}">
 				</div>
 				<div class="col-lg 12">
 					<label for="observaciones">Observaciones</label>
 					<textarea name="ObsFac" class="form-control" placeholder="Observaciones">{{old('ObsFac')}}</textarea>
 				</div>
 			</div>
-				<input type="submit" class="btn btn-success btn-block btn-lg mt-4" value="Agregar" id="btnCrear">
+				<input type="submit" class="btn btn-primary btn-block btn-lg mt-4" value="Agregar" id="btnCrear">
 		</form>
 @endsection

@@ -32,6 +32,6 @@
             <textarea name="ObsUniOpeTra" class="form-control" placeholder="Observaciones">{{old('ObsUniOpeTra')}}</textarea>
         </div>
     </div>
-    <input type="submit" class="btn btn-success btn-block btn-lg mt-4" value="Agregar" id="btnCrear">
+    <input type="submit" class="btn btn-primary btn-block btn-lg mt-4" value="Agregar" id="btnCrear">
 </form>
 @endsection

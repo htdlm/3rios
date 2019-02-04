@@ -37,7 +37,7 @@
 		<strong>{{$movimiento->cliente_localidad->cliente->NomCli}} ({{$movimiento->cliente_localidad->NomLoc}})</strong>
 	</h4>
 	<h5 class="text-left">Fecha de Servicio
-		<strong><?php echo date("F j, Y, g:i a",strtotime($movimiento->FecCre))?></strong>
+		<strong><?php echo date("F j, Y, g:i a",strtotime($movimiento->created_at))?></strong>
 	</h5>
 	<h5 class="text-left">Codigo Minigrip:
 		<strong>
@@ -61,7 +61,7 @@
 					<strong>{{$evento->fase_movimiento->FasMov}} @if($loop->index>0){{$loop->index}}@endif:
 					</strong>
 				@endif
-				<p class="font-weight-bolder"><?php echo date("F j, Y, / g:i a",strtotime($evento->FecRea))?> / {{$evento->ObsEve}}</p>
+				<p class="font-weight-bolder"><?php echo date("F j, Y, / g:i a",strtotime($evento->created_at))?> / {{$evento->ObsEve}}</p>
 			</p>
 			</h5>
 			@if(Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))

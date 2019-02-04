@@ -27,7 +27,7 @@
                 </select>
             </div>
             <div class="card-footer">
-                <button type="button" name="button" class="btn btn-success btn-lg btn-block" id="btnBuscar">BUSCAR</button>
+                <button type="button" name="button" class="btn btn-primary btn-lg btn-block" id="btnBuscar">BUSCAR</button>
             </div>
         </div>
     </div>

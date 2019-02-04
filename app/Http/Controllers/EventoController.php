@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Evento;
+use Mail;
 use App\Adicional;
 use App\FaseMovimiento;
 use App\Cliente;
@@ -21,7 +22,7 @@ class EventoController extends Controller
      {
        $fases=FaseMovimiento::all();
        $adicionales=Adicional::all();
-       $movimientos=Movimiento::where('RefCli',$id)->get();
+       $movimientos=Movimiento::where('RefCli','like','%'.$id.'%')->get();
        if(count($movimientos)==0){
          Session::flash('message','No hay registros con estos datos');
          Session::flash('class','warning');
@@ -65,10 +66,12 @@ class EventoController extends Controller
       * @param  \Illuminate\Http\Request  $request
       * @return \Illuminate\Http\Response
       */
+      //@offsoleto
      public function store(Request $request)
      {
          $evento = new Evento();
-         $evento->fill($request->all());         
+         $evento->fill($request->all());
+
 
           //Traer el id de usuario de la sesion
           $evento->UseId=Auth()->user()->UseId;
@@ -87,9 +90,11 @@ class EventoController extends Controller
      {
        $evento = new Evento();
        $evento->fill($request->all());
+       //return $evento;
 
       //Traer el id de usuario de la sesion
         $evento->UseId=Auth()->user()->UseId;
+
 
        if ($evento->save()) {
            Session::flash('message', 'Evento agregado correctamente');
@@ -98,6 +103,27 @@ class EventoController extends Controller
            Session::flash('message', 'Algo salio mal');
            Session::flash('class', 'danger');
        }
+
+       /*Email al que se mandara la info del Servicio*/
+       $movimiento=Movimiento::find($request->MovId);
+       $this->correo=$movimiento->cliente_localidad->EmaLoc;
+      try{
+           if($this->correo!=''){
+                $data=array(
+                 'movimiento' => $movimiento,
+               );
+
+               /*Mandar Mail*/
+               Mail::send('Evento.email',$data,function($message){
+                 $message->from('3RiosLogistica@gmail.com','3Rios Logistica');
+                 $message->to($this->correo)->subject('Nuevo evento agregado');
+               });
+           }
+       }catch(Exception $e){
+         Session::flash('message','Servicio agregado. Posible email incorrecto');
+         Session::flash('class','warning');
+       }
+
        return back();
      }
 

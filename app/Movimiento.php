@@ -9,14 +9,24 @@ class Movimiento extends Model
 
     protected $table = 'mov';
 
-    protected $fillable = ['FecCre', 'FecAct', 'FecSer', 'FecSol', 'FecRea', 'FasMovId', 'CliLocId', 'RefCli', 'ObsMov', 'KilBru', 'KilNet', 'NumTar', 'AdiId1', 'AdiId2', 'AdiId3', 'UseId1', 'SemSol','SemRea', 'SemSer', 'FacTar', 'FacTarTot','UniId'];
+    protected $fillable = ['FecCre', 'FecAct', 'FecSer', 'FecSol', 'FecRea',
+    'FasMovId', 'CliLocId', 'RefCli', 'ObsMov', 'KilBru', 'KilNet', 'NumTar',
+     'AdiId1', 'AdiId2', 'AdiId3', 'UseId1', 'SemSol','SemRea', 'SemSer',
+     'FacTar', 'FacTarTot','UniId'];
 
     protected $primaryKey = 'MovId';
+
+    public function unidad()
+    {
+        return $this->belongsTo(Unidad::class,'UniId');
+    }
+
+
     /* Hay 3 adicionales, checar si puedo
     hacer la consulta de los 3 en este mismo metodo */
     public function adicional1()
     {
-        return $this->hasOne(Adicional::class,'AdiId1');
+        return $this->belongsTo(Adicional::class,'AdiId1');
     }
 
     public function adicional2()
@@ -91,6 +101,6 @@ class Movimiento extends Model
     /* Cada movimiento lo genera un usuario */
     public function user()
     {
-      return $this->hasOne(User::class,'UseId');
+      return $this->belongsTo(User::class,'UseId1');
     }
 }

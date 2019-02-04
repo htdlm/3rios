@@ -1,8 +1,6 @@
 @extends('layouts.app') @section('content') @if(Session::has('message'))
-<div class="card-footer">
     <div class="alert alert-{{Session::get('class')}} alert-dismissable">
         <button type="button" class="close" data-dismiss="alert">&times;</button>{{Session::get('message')}}</div>
-</div>
 @endif
 <h1 class="text-center">Nuevo Servicio</h1>
 
@@ -134,7 +132,7 @@
                 <label for="observaciones">Observaciones</label>
                 <textarea class="form-control" name="ObsMov" value="{{old('ObsMov')}}" placeholder="Observaciones del movimiento"></textarea>
 
-                <input type="submit" name="button" value="Registrar" class="btn btn-success btn-lg btn-block mt-4 mb-4" id="btnRegistrar">
+                <input type="submit" name="button" value="Registrar" class="btn btn-primary btn-lg btn-block mt-4 mb-4" id="btnRegistrar">
 
             </div>
         </div>
