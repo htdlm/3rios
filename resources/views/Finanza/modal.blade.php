@@ -3,6 +3,8 @@
 Nueva Finanza
 @endsection
 @section('body')
+
+<!--Esta seccion ya no se encuentra funcional-->
 <form action="Finanza/agregar" method="post" id="frmAgregar">
     {{csrf_field()}}
     <div class="row">
