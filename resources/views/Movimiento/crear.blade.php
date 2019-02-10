@@ -121,11 +121,11 @@
                 <input class="form-control" type="number" step="any" name="KilNet" value="{{old('KilNet')}}" placeholder="Cantidad de kilos netos">
                 <!-- LLenado automatico -->
                 <label for="factortarifa">Factor de la tarifa <span style="color:#FF0000;font-size: 15pt">*</span></label>
-                <input class="form-control" type="number" step="any" readonly="readonly" name="FacTar" value="{{old('FacTar')}}" placeholder="Debes seleccionar un cliente y unidad">
+                <input class="form-control" type="number" step="any"  name="FacTar" value="{{old('FacTar')}}" placeholder="Debes seleccionar un cliente y unidad">
 
                 <!-- Calculo entre los kilos netos y la tarifa -->
                 <label for="totaltarifa">Factor total de la Tarifa</label>
-                <input class="form-control" type="number" step="any" required readonly="readonly" name="FacTarTot" value="{{old('FacTarTot')}}" placeholder="Total de la tarifa">
+                <input class="form-control" type="number" step="any" required  name="FacTarTot" value="{{old('FacTarTot')}}" placeholder="Total de la tarifa">
 
             </div>
             <div class="col-lg-12">

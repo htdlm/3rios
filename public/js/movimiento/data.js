@@ -59,13 +59,26 @@
 
   /*Operar kilos brutos*/
   $('input[name=KilBru]').on('change', function() {
-      if ($('input[name=NumTar]').val() != "") {
-          operar();
-          var tipo = $('select[name=TipUni]').find(':selected').val();
-          validarPeso(tipo);
-      } else {
-          alert('Agregue un numero de Tarimas para calcular el total de kilos')
-      }
+      operar();
+      var tipo = $('select[name=TipUni]').find(':selected').val();
+      validarPeso(tipo);
+      /* Pendiente checar las tarimas 09/02/19
+        if ($('input[name=NumTar]').val() != "") {
+        } else {
+            alert('Agregue un numero de Tarimas para calcular el total de kilos')
+        }*/
+  });
+
+  /*Operar kilos netos*/
+  $('input[name=KilNet]').on('change', function() {
+      operar();
+      var tipo = $('select[name=TipUni]').find(':selected').val();
+      validarPeso(tipo);
+      /* Pendiente checar las tarimas 09/02/19
+        if ($('input[name=NumTar]').val() != "") {
+        } else {
+            alert('Agregue un numero de Tarimas para calcular el total de kilos')
+        }*/
   });
 
   /*Mostramos las localidades que tiene el cliente*/
@@ -84,11 +97,18 @@
 
   //Calcular kilos Netos y factor total
   function operar() {
-      var tarimas = parseFloat($('input[name=NumTar]').val());
-      var kilbrutos = parseFloat($('input[name=KilBru]').val());
-      var kilNetos = parseFloat((tarimas * 1.2) + kilbrutos);
-      var tarifa = parseFloat($('input[name=FacTar]').val())
-      var totalTarifa = parseFloat(kilNetos * tarifa);
+      /*Se desactivo para dejar abierto el calculo 09/02/19
+        var tarimas = parseFloat($('input[name=NumTar]').val());
+        var kilbrutos = parseFloat($('input[name=KilBru]').val());
+        var kilNetos = parseFloat((tarimas * 1.2) + kilbrutos);
+        */
+      var totalTarifa = 0;
+      var tarifa = parseFloat($('input[name=FacTar]').val());
+      if ($('input[name=KilNet]').val() != '') {
+          var kilosNetos = parseFloat($('input[name=KilNet]').val());
+          totalTarifa = parseFloat(kilosNetos * tarifa);
+      }
+
       if (adi1 != 0) {
           totalTarifa += adi1;
       }
@@ -98,9 +118,10 @@
       if (adi3 != 0) {
           totalTarifa += adi3;
       }
-
-      $('input[name=KilNet]').val(kilNetos);
       $('input[name=FacTarTot]').val(totalTarifa.toFixed(4));
+
+      /* Se desactiva
+      $('input[name=KilNet]').val(kilNetos);*/
   }
 
   /*Si cambia FacTar operar*/
