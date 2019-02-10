@@ -21,27 +21,25 @@ class EventoController extends Controller
      public function indexMinigrip($id)
      {
        $fases=FaseMovimiento::all();
-       $adicionales=Adicional::all();
        $movimientos=Movimiento::where('RefCli','like','%'.$id.'%')->get();
        if(count($movimientos)==0){
          Session::flash('message','No hay registros con estos datos');
          Session::flash('class','warning');
          return back();
        }
-       return view('Evento.index', compact('movimientos','fases','adicionales'));
+       return view('Evento.index', compact('movimientos','fases'));
      }
 
     public function indexLocalidad($id)
     {
          $fases=FaseMovimiento::all();
-         $adicionales=Adicional::all();
          $movimientos=Movimiento::where('CliLocId',$id)->get();
          if(count($movimientos)==0){
            Session::flash('message','No hay registros con estos datos');
            Session::flash('class','warning');
            return back();
          }
-       return view('Evento.index', compact('movimientos','fases','adicionales'));
+       return view('Evento.index', compact('movimientos','fases'));
      }
 
      public function buscar()
