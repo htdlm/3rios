@@ -40,8 +40,7 @@
 		<h5 class="text-left">Fecha de Servicio
 			<strong>
 				<?php
-			setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
-			echo $fecha = strftime( "%d de %B de %Y - %T ",strtotime($movimiento->created_at) );
+			echo $fecha = strftime( "%d del %m de %Y - %T ",strtotime($movimiento->created_at) );
 			?>
 			</strong>
 		</h5>
@@ -70,8 +69,8 @@
 							@endif
 							<p class="font-weight-bolder">
 								<?php
-							setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
-							echo $fecha = strftime( "%d de %B de %Y / %T ",strtotime($evento->created_at) );
+							setlocale(LC_ALL,"es_ES","esp");
+							echo $fecha = strftime( "%d del %m de %Y / %T ",strtotime($evento->created_at) );
 							?>
 								/
 								{{$evento->ObsEve}}</p>
