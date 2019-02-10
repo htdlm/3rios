@@ -7,7 +7,6 @@ $(document).ready(function() {
     //Modificar action del form
     $('#frmAgregar').attr('action', '/Movimiento/actualizar/' + id);
     $.get('/Movimiento/mostrar/' + id, function(data) {
-        console.log(data);
         /*Fechas*/
         $('input[name=FecAct]').val(data.FecAct);
         $('input[name=FecSer]').val(data.FecSer);
