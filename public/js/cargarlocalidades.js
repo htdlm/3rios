@@ -12,7 +12,6 @@ $('select[name=CliId]').on('change', function() {
 //Funciones al cambiar el cliente
 function cargarLocalidades(id) {
     $.get('/Localidades/mostrar/' + id, function(data) {
-        console.log(data);
         $('select[name=CliLocId').empty();
         var texto = "";
 

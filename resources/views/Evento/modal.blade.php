@@ -43,15 +43,7 @@ Nuevo Evento
               @foreach ($fases as $fase)
               <option value="{{$fase->FasMovId}}">{{$fase->FasMov}}</option>
               @endforeach
-          </select>
-
-          <label for="adicionales">Eventualidad</label>
-          <select class="form-control" name="AdiId">
-            <option value="">Ninguno</option>
-              @foreach ($adicionales as $adicional)
-              <option value="{{$adicional->AdiId}}">{{$adicional->DesAdi}}</option>
-              @endforeach
-          </select>
+          </select>        
 
             <label for="observacion">Observacion</label>
             <textarea class="form-control" placeholder="Observaciones" name="ObsEve" value="">{{old('ObsEve')}}</textarea>

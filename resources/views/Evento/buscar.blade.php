@@ -13,6 +13,9 @@
             <div class="card-body">
                 <label for="Referencia">Codigo de Referencia Minigrip</label>
                 <input class="form-control" type="text" name="RefCli" value="{{old('RefCli')}}" placeholder="Referencia Minigrip (Tiene prioridad sobre Cliente)">
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                  Muestra solo el registro especificado
+                </small>
                 <br>
                 <label for="cliente">Cliente</label>
                 <select class="form-control" name="CliId">
@@ -25,6 +28,9 @@
                 <select class="form-control" name="CliLocId">
                     <!-- Se llena automaticamente-->
                 </select>
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                  Muestra todos los registros relacionados con la localidad del cliente seleccionado
+                </small>
             </div>
             <div class="card-footer">
                 <button type="button" name="button" class="btn btn-primary btn-lg btn-block" id="btnBuscar">BUSCAR</button>

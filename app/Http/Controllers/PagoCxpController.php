@@ -39,7 +39,7 @@ class PagoCxpController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->FacCxpNum==0){
+        if($request->FacCxpNum===0){
           Session::flash('message','No seleccionaste ninguna factura');
           Session::flash('class','danger');
           return back();
@@ -102,7 +102,20 @@ class PagoCxpController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $pago=PagoCxp::find($id);
+      $pago->fill($request->all());
+      /*
+      Detalle, si se actualiza el monto del pago, se debe actualizar el saldo??
+      */
+      if($pago->save()){
+        Session::flash('message','Pago Actualizado');
+        Session::flash('class','success');
+      }else{
+        Session::flash('message','Algo salio mal');
+        Session::flash('class','danger');
+      }
+
+      return back();
     }
 
     /**

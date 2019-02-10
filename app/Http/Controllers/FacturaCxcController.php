@@ -7,7 +7,6 @@ use App\FacturaCxc;
 use App\Exports\FacturaCxcExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Movimiento;
-
 use Session;
 
 class FacturaCxcController extends Controller

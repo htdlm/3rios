@@ -15,68 +15,81 @@
 			<div class="col-lg-8">
 				@else
 				<div class="col-lg-12">
-				@endif
-				<div class="alert alert-primary">
-					<h3 class="text-left">Logística Tres Ríos - Reporte de Status de Servicio en Transito
-					</h3>
+					@endif
+					<div class="alert alert-primary">
+						<h3 class="text-left">Logística Tres Ríos - Reporte de Status de Servicio en Transito
+						</h3>
+					</div>
 				</div>
+				@if(Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
+				<div class="col-lg-4">
+					<button class="btn btn-primary btn-block btn-lg btnNuevo mb-4" data-target="#ventana" data-toggle="modal" data-evento="{{$movimiento}}">
+						Añadir Evento
+						<img alt="" src="{{asset('imagenes/agregar.png')}}"/>
+					</button>
+				</div>
+				@endif
 			</div>
-			@if(Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
-			<div class="col-lg-4">
-				<button class="btn btn-primary btn-block btn-lg btnNuevo mb-4" data-target="#ventana" data-toggle="modal" data-evento="{{$movimiento}}">
-					Añadir Evento
-					<img alt="" src="{{asset('imagenes/agregar.png')}}"/>
-				</button>
-			</div>
-			@endif
 		</div>
 	</div>
-</div>
-<div class="alert alert-warning">
-	<h4 class="text-left">Destino/Localidad:
-		<strong>{{$movimiento->cliente_localidad->cliente->NomCli}} ({{$movimiento->cliente_localidad->NomLoc}})</strong>
-	</h4>
-	<h5 class="text-left">Fecha de Servicio
-		<strong><?php echo date("F j, Y, g:i a",strtotime($movimiento->created_at))?></strong>
-	</h5>
-	<h5 class="text-left">Codigo Minigrip:
-		<strong>
-			{{$movimiento->RefCli}}</strong>
+	<div class="alert alert-warning">
+		<h4 class="text-left">Destino/Localidad:
+			<strong>{{$movimiento->cliente_localidad->cliente->NomCli}}
+				({{$movimiento->cliente_localidad->NomLoc}})</strong>
+		</h4>
+		<h5 class="text-left">Fecha de Servicio
+			<strong>
+				<?php
+			setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
+			echo $fecha = strftime( "%d de %B de %Y - %T ",strtotime($movimiento->created_at) );
+			?>
+			</strong>
+		</h5>
+		<h5 class="text-left">Codigo Minigrip:
+			<strong>
+				{{$movimiento->RefCli}}</strong>
 		</h5>
 	</div>
-@foreach($movimiento->eventos as $evento)
-<div class="row">
-	<div class="col-lg-12">
-		<div class="card mb-4 border-dark">
-			<div class="card-header">
-				<h3 class="text-center">Datos del Movimiento</h3>
-			</div>
-			<div class="card-body">
-				<h5>
-					<p>
-				@if($evento->fase_movimiento->PriFas && Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
-					<strong>{{$evento->fase_movimiento->FasMov}}:
-					</strong>
-				@elseif(!$evento->fase_movimiento->PriFas)
-					<strong>{{$evento->fase_movimiento->FasMov}} @if($loop->index>0){{$loop->index}}@endif:
-					</strong>
-				@endif
-				<p class="font-weight-bolder"><?php echo date("F j, Y, / g:i a",strtotime($evento->created_at))?> / {{$evento->ObsEve}}</p>
-			</p>
-			</h5>
-			@if(Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
-				<p class="card-text">Mesa de control:
-					<strong>{{$evento->user->name}}/L3R
-					</strong>
-				</p>
-				@endif
+	@foreach($movimiento->eventos as $evento)
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card mb-4 border-dark">
+				<div class="card-header">
+					<h3 class="text-center">Datos del Movimiento</h3>
+				</div>
+				<div class="card-body">
+					<h5>
+						<p>
+							@if($evento->fase_movimiento->PriFas && Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
+							<strong>{{$evento->fase_movimiento->FasMov}}:
+							</strong>
+							@elseif(!$evento->fase_movimiento->PriFas)
+							<strong>{{$evento->fase_movimiento->FasMov}}
+								@if($loop->index>0){{$loop->index}}@endif:
+							</strong>
+							@endif
+							<p class="font-weight-bolder">
+								<?php
+							setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
+							echo $fecha = strftime( "%d de %B de %Y / %T ",strtotime($evento->created_at) );
+							?>
+								/
+								{{$evento->ObsEve}}</p>
+						</p>
+					</h5>
+					@if(Auth::check() && (Auth::user()->hasRole('Administrador')||Auth::user()->hasRole('Capturador')))
+					<p class="card-text">Mesa de control:
+						<strong>{{$evento->user->name}}/L3R
+						</strong>
+					</p>
+					@endif
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-@endforeach
-<br>
-<hr>
-@endforeach @include('Evento.modal') @endsection @section('scripts')
-<script src="{{asset('js/evento/agregar.js')}}"></script>
-@endsection
+	@endforeach
+	<br>
+	<hr>
+	@endforeach @include('Evento.modal') @endsection @section('scripts')
+	<script src="{{asset('js/evento/agregar.js')}}"></script>
+	@endsection
