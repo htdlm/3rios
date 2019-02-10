@@ -153,7 +153,22 @@ class MovimientoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $movimiento=Movimiento::find($id);
+      $movimiento->fill($request->all());
+
+      //Id del usuario que realizo el movimiento
+      $movimiento->UseId1=Auth()->user()->UseId;
+
+      /*Antes de guardar validar que los kilos y el transporte
+      coincidan, sino regresar un mensaje*/
+      if($movimiento->save()){
+        Session::flash('message','Movimiento actualizado correctamente');
+        Session::flash('class','success');
+      }else{
+        Session::flash('message','Algo salio mal');
+        Session::flash('class','danger');
+      }
+      return back();
     }
 
     /**
