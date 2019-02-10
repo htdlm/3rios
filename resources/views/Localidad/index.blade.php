@@ -38,7 +38,10 @@
 								<tbody>
 									@foreach($localidades as $localidad)
 									<tr>
-										<td class="text-center">{{$localidad->cliente->NomCli}}</td>
+										<td class="text-center">
+										@if(isset($localidad->cliente))
+										{{$localidad->cliente->NomCli}}
+										@endif</td>
 										<td class="text-center">{{$localidad->IndLoc}}</td>
 										<td class="text-center">{{$localidad->DirLoc}}</td>
 										<td class="text-center">{{$localidad->TelLoc}}</td>
