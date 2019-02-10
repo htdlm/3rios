@@ -58,9 +58,7 @@ class MovimientoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-
-      return $request;
+    {      
       $movimiento=new Movimiento();
       $movimiento->fill($request->all());
 

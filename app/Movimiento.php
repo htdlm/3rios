@@ -31,12 +31,12 @@ class Movimiento extends Model
 
     public function adicional2()
     {
-        return $this->hasOne(Adicional::class,'AdiId2');
+        return $this->belongsTo(Adicional::class,'AdiId2');
     }
 
     public function adicional3()
     {
-        return $this->hasOne(Adicional::class,'AdiId3');
+        return $this->belongsTo(Adicional::class,'AdiId3');
     }
 
     /* Todas las evidencias del movimiento
