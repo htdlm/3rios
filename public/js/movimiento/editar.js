@@ -5,7 +5,7 @@ $(document).ready(function() {
     //Modificar el titulo y color del boton del modal
     $('#btnRegistrar').val('Editar'); //.removeClass('btn-success').addClass('btn-info');*/
     //Modificar action del form
-    $('#frmAgregar').attr('action', 'Movimiento/actualizar/' + id);
+    $('#frmAgregar').attr('action', '/Movimiento/actualizar/' + id);
     $.get('/Movimiento/mostrar/' + id, function(data) {
         console.log(data);
         /*Fechas*/

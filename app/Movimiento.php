@@ -11,8 +11,8 @@ class Movimiento extends Model
 
     protected $fillable = ['FecCre', 'FecAct', 'FecSer', 'FecSol', 'FecRea',
     'FasMovId', 'CliLocId', 'RefCli', 'ObsMov', 'KilBru', 'KilNet', 'NumTar',
-     'AdiId1', 'AdiId2', 'AdiId3', 'UseId1', 'SemSol','SemRea', 'SemSer',
-     'FacTar', 'FacTarTot','UniId'];
+     'AdiId1','AdiValId1', 'AdiId2','AdiValId2', 'AdiId3','AdiValId3', 'UseId1',
+     'SemSol','SemRea', 'SemSer','FacTar', 'FacTarTot','UniId'];
 
     protected $primaryKey = 'MovId';
 
